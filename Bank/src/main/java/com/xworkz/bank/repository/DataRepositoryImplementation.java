@@ -17,19 +17,19 @@ public class DataRepositoryImplementation implements DataRepository{
 
 
     @Override
-    public String saveData(ArrayList<Account> accountList) {
+    public void saveData(Account account) {
 
-        System.out.println(accountList);
         try {
             eMF = Persistence.createEntityManagerFactory("BankUnit");
             eM = eMF.createEntityManager();
             eT = eM.getTransaction();
 
-            for (Account account : accountList){
+
                 eT.begin();
-                eM.persist(accountList);
+                eM.persist(account);
                 eT.commit();
-            }
+
+
 
         }catch (Exception e){
             if(eT.isActive()){
@@ -38,12 +38,10 @@ public class DataRepositoryImplementation implements DataRepository{
         }finally {
             eM.close();
         }
-
-        return "Data has been Store in DataBase........";
     }
 
     @Override
-    public String upDateData(Account account , String name) {
+    public String upDateData(int id , String name) {
 
         try {
             eMF = Persistence.createEntityManagerFactory("BankUnit");
@@ -51,9 +49,8 @@ public class DataRepositoryImplementation implements DataRepository{
             eT = eM.getTransaction();
             eT.begin();
 
-            Account account1 = account;
-//            account1.setAccountNumber(name);
-
+            Account account = eM.find(Account.class,id);
+            account.setBankHolderName(name);
             eT.commit();
         }catch (Exception e){
             if(eT.isActive()){
@@ -62,16 +59,28 @@ public class DataRepositoryImplementation implements DataRepository{
         }finally {
             eM.close();
         }
-        return "The name Updated";
+        return "The Bank Holder Name Updated";
     }
 
     @Override
-    public void getData(int id) {
-
+    public String getData(int id) {
+        eMF = Persistence.createEntityManagerFactory("BankUnit");
+        eM = eMF.createEntityManager();
+        eT = eM.getTransaction();
+        eT.begin();
+        Account account = eM.find(Account.class,id);
+       return account.toString();
     }
 
     @Override
-    public String deleteData() {
-        return "";
+    public String deleteData(int id) {
+        eMF = Persistence.createEntityManagerFactory("BankUnit");
+        eM = eMF.createEntityManager();
+        eT = eM.getTransaction();
+        eT.begin();
+        Account account = eM.find(Account.class,id);
+        eM.remove(account);
+        eT.commit();
+        return "THE DATA HAS BEEN REMOVED FROM DATA BASE";
     }
 }
