@@ -6,6 +6,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DataRepositoryImplementation implements DataRepository{
 
@@ -15,19 +17,23 @@ public class DataRepositoryImplementation implements DataRepository{
 
 
     @Override
-    public String saveData(Account account) {
+    public String saveData(ArrayList<Account> accountList) {
 
+        System.out.println(accountList);
         try {
             eMF = Persistence.createEntityManagerFactory("BankUnit");
             eM = eMF.createEntityManager();
             eT = eM.getTransaction();
-            eT.begin();
-            eM.persist(account);
-            eT.commit();
+
+            for (Account account : accountList){
+                eT.begin();
+                eM.persist(accountList);
+                eT.commit();
+            }
+
         }catch (Exception e){
             if(eT.isActive()){
                 eT.rollback();
-                eT.commit();
             }
         }finally {
             eM.close();
@@ -37,13 +43,31 @@ public class DataRepositoryImplementation implements DataRepository{
     }
 
     @Override
-    public void upDateData() {
+    public String upDateData(Account account , String name) {
 
+        try {
+            eMF = Persistence.createEntityManagerFactory("BankUnit");
+            eM = eMF.createEntityManager();
+            eT = eM.getTransaction();
+            eT.begin();
+
+            Account account1 = account;
+//            account1.setAccountNumber(name);
+
+            eT.commit();
+        }catch (Exception e){
+            if(eT.isActive()){
+                eT.rollback();
+            }
+        }finally {
+            eM.close();
+        }
+        return "The name Updated";
     }
 
     @Override
-    public Account getData() {
-        return null;
+    public void getData(int id) {
+
     }
 
     @Override

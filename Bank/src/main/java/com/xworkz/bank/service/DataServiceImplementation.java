@@ -4,22 +4,25 @@ import com.xworkz.bank.entity.Account;
 import com.xworkz.bank.repository.DataRepository;
 import com.xworkz.bank.repository.DataRepositoryImplementation;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DataServiceImplementation implements DataService{
     DataRepository dataRepository = new DataRepositoryImplementation();
     @Override
-    public String saveValidation(Account account) {
-        return dataRepository.saveData(account);
+    public String saveValidation(ArrayList<Account> accountList ) {
+        return dataRepository.saveData(accountList);
     }
 
     @Override
-    public void upDateValidation() {
-        dataRepository.upDateData();
+    public String upDateValidation(Account account , String name ) {
+        return dataRepository.upDateData(account , name);
     }
 
     @Override
-    public Account getValidation() {
-        dataRepository.getData();
-        return null;
+    public void getValidation(int id) {
+        dataRepository.getData(id);
+
     }
 
     @Override

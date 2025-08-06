@@ -34,6 +34,14 @@ public class Account {
     private String bankAddress;
 
     @Column(name = "ifsc_number")
-    private int ifscCode;
+    private String ifscCode;
+
+    public Account( String bankHolderName, int accountNumber, String bankName, String bankAddress, String ifscCode) {
+        this.bankHolderName = bankHolderName;
+        this.accountNumber = accountNumber;
+        this.bankName = bankName;
+        this.bankAddress = bankAddress;
+        this.ifscCode = ifscCode;
+    }
 
 }
