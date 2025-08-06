@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface DataService {
-    public String saveValidation(ArrayList<Account> accountList);
+    public String saveValidation(ArrayList<Account> account ) ;
 
-    public String upDateValidation(Account account,String name);
+    public String upDateValidation(int id,String name);
 
-    public void getValidation(int id);
+    public String getValidation(int id);
 
-    public String deleteValidation();
+    public String deleteValidation(int id);
 }

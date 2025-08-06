@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface DataRepository {
-    public String saveData(ArrayList<Account> accountList);
+    public void saveData(Account account);
 
-    public String upDateData(Account account , String name);
+    public String upDateData(int id , String name);
 
-    public void getData(int id);
+    public String getData(int id);
 
-    public String deleteData();
+    public String deleteData(int id);
 }

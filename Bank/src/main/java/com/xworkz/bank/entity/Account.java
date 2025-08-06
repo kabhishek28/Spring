@@ -44,4 +44,15 @@ public class Account {
         this.ifscCode = ifscCode;
     }
 
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id=" + id +
+                ", bankHolderName='" + bankHolderName + '\'' +
+                ", accountNumber=" + accountNumber +
+                ", bankName='" + bankName + '\'' +
+                ", bankAddress='" + bankAddress + '\'' +
+                ", ifscCode='" + ifscCode + '\'' +
+                '}';
+    }
 }
