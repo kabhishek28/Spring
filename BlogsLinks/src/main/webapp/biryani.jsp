@@ -33,8 +33,20 @@
 <div class=" container d-flex justify-content-center align-items-center mt-5">
     <div class="card text-center mb-3" style="width: 18rem;">
         <div class="card-body">
-            <h5 class="card-title">Check Biryani is Available or Not</h5>
-            <a href="checkBiryani" class="btn btn-primary">Go Check</a>
+
+    <form action="checkBiryani" method="post">
+        <label for="Name" class="form-label">Name</label>
+        <input type="text" id="Name" class="form-control" aria-describedby="passwordHelpBlock" name="personName" >
+
+        <label for="HotelName" class="form-label">Hotel Name</label>
+        <input type="text" id="HotelName" class="form-control" aria-describedby="passwordHelpBlock" name="hotelName" >
+
+        <label for="NumberOfPlate" class="form-label">Number of Plate</label>
+        <input type="number" id="NumberOfPlate" class="form-control" aria-describedby="passwordHelpBlock" name="numberOfPlate">
+
+        <h5 class="card-title">Check Biryani is Available or Not</h5>
+        <input class="btn btn-primary" type="submit">
+    </form>
         </div>
     </div>
 </div>
