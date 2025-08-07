@@ -19,9 +19,12 @@ public class DataServiceImplementation implements DataService{
 
 //        BeanUtils.copyProperties(account, dataRepository);
 //        System.out.println("dataRepository"+dataRepository);
-        for(Account account1 : account){
-            dataRepository.saveData(account1);
-        }
+//        for(Account account1 : account){
+//            dataRepository.saveData(account1);
+//        }
+//        account.stream().forEach(account1 ->  dataRepository.saveData(account1));
+
+        dataRepository.saveData(account);
         return "Data has been Saved";
     }
 

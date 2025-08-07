@@ -27,7 +27,7 @@ public class Runner {
 
 //        System.out.println(dataService.saveValidation(list));
 //        BeanUtils.copyProperties(list, dataService);
-//        dataService.saveValidation((Account) dataService);
+        dataService.saveValidation(list);
 
 
 
@@ -38,7 +38,7 @@ public class Runner {
 //        System.out.println("data from database :" + dataService.getValidation(3));
 
 
-        System.out.println(dataService.deleteValidation(4));
+//        System.out.println(dataService.deleteValidation(4));
 
 
 //

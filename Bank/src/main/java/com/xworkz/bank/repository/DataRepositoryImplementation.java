@@ -7,7 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class DataRepositoryImplementation implements DataRepository{
 
@@ -17,17 +17,22 @@ public class DataRepositoryImplementation implements DataRepository{
 
 
     @Override
-    public void saveData(Account account) {
-
+    public void saveData(ArrayList<Account> account ) {
+        System.out.println(account);
         try {
             eMF = Persistence.createEntityManagerFactory("BankUnit");
             eM = eMF.createEntityManager();
             eT = eM.getTransaction();
 
 
-                eT.begin();
-                eM.persist(account);
-                eT.commit();
+//                eT.begin();
+//                eM.persist(account);
+//                eT.commit();
+
+
+            for(Account account1 : account){ eT.begin();
+               eM.persist(account1);eT.commit();
+            }
 
 
 

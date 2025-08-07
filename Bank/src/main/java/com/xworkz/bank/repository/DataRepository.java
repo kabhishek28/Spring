@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface DataRepository {
-    public void saveData(Account account);
+    public void saveData(ArrayList<Account> account );
 
     public String upDateData(int id , String name);
 
