@@ -33,8 +33,20 @@
 <div class=" container d-flex justify-content-center align-items-center mt-5">
     <div class="card text-center mb-3" style="width: 18rem;">
         <div class="card-body">
-            <h5 class="card-title">Check Onion is Available or Not</h5>
-            <a href="checkOnion" class="btn btn-primary">Go Check</a>
+            <form action="checkOnion" method="post">
+                <label for="Type" class="form-label">Onion Type</label>
+                <input type="text" id="Type" class="form-control" name="onionType">
+
+                <label for="Price" class="form-label">Onion Price</label>
+                <input type="number" id="Price" class="form-control" name="onionPrice">
+
+                <label for="Quantity" class="form-label">Onion Quantity</label>
+                <input type="text" id="Quantity" class="form-control" name="onionQuantity">
+
+                <h5 class="card-title">Check Onion is Available or Not</h5>
+                <input class="btn btn-primary" type="submit">
+            </form>
+
         </div>
     </div>
 </div>

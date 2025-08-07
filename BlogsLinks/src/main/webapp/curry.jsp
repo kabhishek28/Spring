@@ -33,8 +33,19 @@
 <div class=" container d-flex justify-content-center align-items-center mt-5">
     <div class="card text-center mb-3" style="width: 18rem;">
         <div class="card-body">
-            <h5 class="card-title">Check Curry is Available or Not</h5>
-            <a href="checkCurry" class="btn btn-primary">Go Check</a>
+            <form action="checkCurry" method="post">
+                <label for="Name" class="form-label">Curry Name</label>
+                <input type="text" id="Name" class="form-control" name="curryName">
+
+                <label for="Price" class="form-label">Curry Price</label>
+                <input type="number" id="Price" class="form-control" name="curryPrice">
+
+                <label for="Quantity" class="form-label">Curry Quantity</label>
+                <input type="text" id="Quantity" class="form-control" name="curryQuantity">
+
+                <h5 class="card-title">Check Curry is Available or Not</h5>
+                <input class="btn btn-primary" type="submit">
+            </form>
         </div>
     </div>
 </div>

@@ -33,8 +33,20 @@
 <div class=" container d-flex justify-content-center align-items-center mt-5">
     <div class="card text-center mb-3" style="width: 18rem;">
         <div class="card-body">
-            <h5 class="card-title">Check Soap is Available or Not</h5>
-            <a href="checkSoap" class="btn btn-primary">Go Check</a>
+            <form action="checkSoap" method="post">
+                <label for="Brand" class="form-label">Soap Brand</label>
+                <input type="text" id="Brand" class="form-control" name="soapBrand">
+
+                <label for="Price" class="form-label">Soap Price</label>
+                <input type="number" id="Price" class="form-control" name="soapPrice">
+
+                <label for="Fragrance" class="form-label">Soap Fragrance</label>
+                <input type="text" id="Fragrance" class="form-control" name="soapFragrance">
+
+                <h5 class="card-title">Check Soap is Available or Not</h5>
+                <input class="btn btn-primary" type="submit">
+            </form>
+
         </div>
     </div>
 </div>

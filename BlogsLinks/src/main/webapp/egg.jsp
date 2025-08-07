@@ -33,8 +33,20 @@
 <div class=" container d-flex justify-content-center align-items-center mt-5">
     <div class="card text-center mb-3" style="width: 18rem;">
         <div class="card-body">
-            <h5 class="card-title">Check Egg is Available or Not</h5>
-            <a href="checkEgg" class="btn btn-primary">Go Check</a>
+            <form action="checkEgg" method="post">
+                <label for="Type" class="form-label">Egg Type</label>
+                <input type="text" id="Type" class="form-control" name="eggType">
+
+                <label for="Price" class="form-label">Egg Price</label>
+                <input type="number" id="Price" class="form-control" name="eggPrice">
+
+                <label for="Quantity" class="form-label">Egg Quantity</label>
+                <input type="text" id="Quantity" class="form-control" name="eggQuantity">
+
+                <h5 class="card-title">Check Egg is Available or Not</h5>
+                <input class="btn btn-primary" type="submit">
+            </form>
+
         </div>
     </div>
 </div>

@@ -1,6 +1,7 @@
 package com.xworkz.blogslinks.component;
 
 
+import com.xworkz.blogslinks.dto.SoapDTO;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -12,8 +13,12 @@ public class Soap {
     }
 
     @RequestMapping("/checkSoap")
-    public String getSoapMessage(){
+    public String getSoapMessage(SoapDTO soapDTO){
         System.out.println("Soap is Available.....");
+        System.out.println("Soap Brand: " + soapDTO.getSoapBrand());
+        System.out.println("Soap Price: " + soapDTO.getSoapPrice());
+        System.out.println("Soap Fragrance: " + soapDTO.getSoapFragrance());
+
         return "soap.jsp";
     }
 

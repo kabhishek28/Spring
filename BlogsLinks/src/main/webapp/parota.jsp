@@ -33,8 +33,20 @@
 <div class=" container d-flex justify-content-center align-items-center mt-5">
     <div class="card text-center mb-3" style="width: 18rem;">
         <div class="card-body">
-            <h5 class="card-title">Check Parota is Available or Not</h5>
-            <a href="checkParota" class="btn btn-primary">Go Check</a>
+            <form action="checkParota" method="post">
+                <label for="Type" class="form-label">Parota Type</label>
+                <input type="text" id="Type" class="form-control" name="parotaType">
+
+                <label for="Price" class="form-label">Parota Price</label>
+                <input type="number" id="Price" class="form-control" name="parotaPrice">
+
+                <label for="Quantity" class="form-label">Parota Quantity</label>
+                <input type="text" id="Quantity" class="form-control" name="parotaQuantity">
+
+                <h5 class="card-title">Check Parota is Available or Not</h5>
+                <input class="btn btn-primary" type="submit">
+            </form>
+
         </div>
     </div>
 </div>
