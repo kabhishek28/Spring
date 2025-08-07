@@ -12,8 +12,9 @@ public class Bottle {
     }
 
     @RequestMapping("/checkBottle")
-    public String checkBottle(){
-        System.out.println("Bottle is not Available...");
+    public String checkBottle(String bottleType,String bottleBrand,int numberOfBottle){
+
+        System.out.println(bottleBrand + ": Bottle is not Available...");
         return "bottle.jsp";
     }
 }

@@ -33,8 +33,19 @@
 <div class=" container d-flex justify-content-center align-items-center mt-5">
     <div class="card text-center mb-3" style="width: 18rem;">
         <div class="card-body">
-            <h5 class="card-title">Check Butter is Available or Not</h5>
-            <a href="checkButter" class="btn btn-primary">Go Check</a>
+            <form action="checkButter" method="post">
+                <label for="Name" class="form-label">Butter Name </label>
+                <input type="text" id="Name" class="form-control" aria-describedby="passwordHelpBlock" name="butterName" >
+
+                <label for="HotelName" class="form-label">Butter price </label>
+                <input type="number" id="HotelName" class="form-control" aria-describedby="passwordHelpBlock" name="butterPrice" >
+
+                <label for="NumberOfPlate" class="form-label">Butter quntity</label>
+                <input type="text" id="NumberOfPlate" class="form-control" aria-describedby="passwordHelpBlock" name="butterQuntity">
+
+                <h5 class="card-title">Check Bottle is Available or Not</h5>
+                <input class="btn btn-primary" type="submit">
+            </form>
         </div>
     </div>
 </div>

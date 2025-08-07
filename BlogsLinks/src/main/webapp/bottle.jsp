@@ -37,13 +37,13 @@
                 <label for="Name" class="form-label">Bottle type</label>
                 <input type="text" id="Name" class="form-control" aria-describedby="passwordHelpBlock" name="bottleType" >
 
-                <label for="HotelName" class="form-label">Hotel Name</label>
-                <input type="text" id="HotelName" class="form-control" aria-describedby="passwordHelpBlock" name="hotelName" >
+                <label for="HotelName" class="form-label">Bottle Brand</label>
+                <input type="text" id="HotelName" class="form-control" aria-describedby="passwordHelpBlock" name="bottleBrand" >
 
-                <label for="NumberOfPlate" class="form-label">Number of Plate</label>
-                <input type="number" id="NumberOfPlate" class="form-control" aria-describedby="passwordHelpBlock" name="numberOfPlate">
+                <label for="NumberOfPlate" class="form-label">Number of Bottle</label>
+                <input type="number" id="NumberOfPlate" class="form-control" aria-describedby="passwordHelpBlock" name="numberOfBottle">
 
-                <h5 class="card-title">Check Biryani is Available or Not</h5>
+                <h5 class="card-title">Check Bottle is Available or Not</h5>
                 <input class="btn btn-primary" type="submit">
             </form>
         </div>
