@@ -2,11 +2,9 @@ package com.xworkz.bank.repository;
 
 import com.xworkz.bank.entity.Account;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class DataRepositoryImplementation implements DataRepository{
@@ -87,5 +85,54 @@ public class DataRepositoryImplementation implements DataRepository{
         eM.remove(account);
         eT.commit();
         return "THE DATA HAS BEEN REMOVED FROM DATA BASE";
+    }
+
+    @Override
+    public List<Account> findAllData() {
+        System.out.println("Finding All Data By NamedQuery");
+        List<Account> list = new ArrayList<>();
+        try {
+            eMF = Persistence.createEntityManagerFactory("BankUnit");
+            eM = eMF.createEntityManager();
+            eT = eM.getTransaction();
+
+
+            eT.begin();
+            Query query = eM.createNamedQuery("getAll");
+            list = query.getResultList();
+            eT.commit();
+
+        }catch (Exception e){
+            if(eT.isActive()){
+                eT.rollback();
+            }
+        }finally {
+            eM.close();
+        }
+        return list;
+    }
+
+    @Override
+    public List<Account> findEntityNameByData(String name) {
+        System.out.println("Find the Entity by the Name");
+        eMF = Persistence.createEntityManagerFactory("BankUnit");
+        eM = eMF.createEntityManager();
+        eT = eM.getTransaction();
+
+        List<Account> list = new ArrayList<>();
+        try{
+            eT.begin();
+            Query query = eM.createNamedQuery("getEntityByName");
+            query.setParameter("bankHolderName", name);
+            list = query.getResultList();
+            eT.commit();
+        }catch (Exception e){
+            if(eT.isActive()){
+                eT.rollback();
+            }
+        }finally {
+            eM.close();
+        }
+        return list;
     }
 }

@@ -44,4 +44,13 @@ public class DataServiceImplementation implements DataService{
         return dataRepository.deleteData(id);
     }
 
+    @Override
+    public List<Account> findAllValidation() {
+        return dataRepository.findAllData();
+    }
+
+    @Override
+    public List<Account> findEntityByNameValidation(String name) {
+        return dataRepository.findEntityNameByData(name);
+    }
 }

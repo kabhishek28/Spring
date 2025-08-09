@@ -13,4 +13,8 @@ public interface DataRepository {
     public String getData(int id);
 
     public String deleteData(int id);
+
+    public List<Account> findAllData();
+
+    public List<Account> findEntityNameByData(String name);
 }

@@ -13,4 +13,11 @@ public interface DataService {
     public String getValidation(int id);
 
     public String deleteValidation(int id);
+
+    public List<Account> findAllValidation();
+
+    public List<Account> findEntityByNameValidation(String name);
+
+    public List<Account> findEntityByNameAndBankBranchValidation(String name , String bankBranch);
+
 }
