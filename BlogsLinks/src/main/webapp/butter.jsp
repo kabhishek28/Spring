@@ -40,7 +40,7 @@
                 <label for="HotelName" class="form-label">Butter price </label>
                 <input type="number" id="HotelName" class="form-control" aria-describedby="passwordHelpBlock" name="butterPrice" >
 
-                <label for="NumberOfPlate" class="form-label">Butter quntity</label>
+                <label for="NumberOfPlate" class="form-label">Butter quantity</label>
                 <input type="text" id="NumberOfPlate" class="form-control" aria-describedby="passwordHelpBlock" name="butterQuntity">
 
                 <h5 class="card-title">Check Bottle is Available or Not</h5>

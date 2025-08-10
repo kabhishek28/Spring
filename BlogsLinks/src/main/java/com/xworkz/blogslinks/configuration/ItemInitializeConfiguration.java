@@ -24,5 +24,4 @@ public class ItemInitializeConfiguration extends AbstractAnnotationConfigDispatc
                 ItemConfiguration.class
         };
     }
-
 }
