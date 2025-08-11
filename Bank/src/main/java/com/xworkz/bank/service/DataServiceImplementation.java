@@ -53,4 +53,9 @@ public class DataServiceImplementation implements DataService{
     public List<Account> findEntityByNameValidation(String name) {
         return dataRepository.findEntityNameByData(name);
     }
+
+    @Override
+    public List<Account> findEntityByNameAndBankBranchValidation(String name, String bankBranch) {
+        return List.of();
+    }
 }
