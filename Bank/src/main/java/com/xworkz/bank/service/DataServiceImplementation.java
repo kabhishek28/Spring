@@ -56,6 +56,6 @@ public class DataServiceImplementation implements DataService{
 
     @Override
     public List<Account> findEntityByNameAndBankBranchValidation(String name, String bankBranch) {
-        return List.of();
+        return new DataRepositoryImplementation().findEntityByNameAndBankBranchValidation(name,bankBranch);
     }
 }

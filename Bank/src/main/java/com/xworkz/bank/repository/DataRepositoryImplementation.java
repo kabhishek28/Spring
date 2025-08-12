@@ -16,26 +16,21 @@ public class DataRepositoryImplementation implements DataRepository{
 
     @Override
     public void saveData(ArrayList<Account> account ) {
-        System.out.println(account);
+
         try {
             eMF = Persistence.createEntityManagerFactory("BankUnit");
             eM = eMF.createEntityManager();
             eT = eM.getTransaction();
 
-
-//                eT.begin();
-//                eM.persist(account);
-//                eT.commit();
-
-
             for(Account account1 : account){ eT.begin();
-               eM.persist(account1);eT.commit();
+               eM.persist(account1);
+               eT.commit();
             }
-
-
 
         }catch (Exception e){
             if(eT.isActive()){
+
+                System.out.println( e.getMessage());
                 eT.rollback();
             }
         }finally {
@@ -125,6 +120,32 @@ public class DataRepositoryImplementation implements DataRepository{
             Query query = eM.createNamedQuery("getEntityByName");
             query.setParameter("bankHolderName", name);
             list = query.getResultList();
+            eT.commit();
+        }catch (Exception e){
+            if(eT.isActive()){
+                eT.rollback();
+            }
+        }finally {
+            eM.close();
+        }
+        return list;
+    }
+
+    @Override
+    public List<Account> findEntityByNameAndBankBranchValidation(String name, String bankBranch) {
+        eMF = Persistence.createEntityManagerFactory("BankUnit");
+        eM = eMF.createEntityManager();
+        eT = eM.getTransaction();
+        List<Account> list = new ArrayList<>();
+
+
+        try {
+            eT.begin();
+            Query query = eM.createNamedQuery("getEntityByNameAndPlace");
+            query.setParameter("bankHolderName",name);
+            query.setParameter("bankName",bankBranch);
+            list = query.getResultList();
+            System.out.println("------------"+list);
             eT.commit();
         }catch (Exception e){
             if(eT.isActive()){

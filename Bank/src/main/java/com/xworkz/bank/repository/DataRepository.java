@@ -17,4 +17,6 @@ public interface DataRepository {
     public List<Account> findAllData();
 
     public List<Account> findEntityNameByData(String name);
+
+    public List<Account> findEntityByNameAndBankBranchValidation(String name , String bankBranch);
 }

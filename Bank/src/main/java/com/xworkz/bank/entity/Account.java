@@ -1,9 +1,11 @@
 package com.xworkz.bank.entity;
 
 
+import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -12,13 +14,12 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 
+@ToString
 @Entity
 @Table(name = "account_table")
 @NamedQuery(name = "getAll" , query = "select entity from Account entity")
 @NamedQuery(name = "getEntityByName" , query = "select entity from Account entity where bank_holder_name =: bankHolderName")
-@NamedQuery(name = "getEntityByNameAndPlace" , query = "select entity from Accont entity where bank_holder_name =: bankHolderName and bank_Name =: bankName")
-
-
+@NamedQuery(name = "getEntityByNameAndPlace" , query = "select entity from Account entity where bankHolderName =: bankHolderName and bankName =: bankName")
 
 public class Account {
 
@@ -27,7 +28,7 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "bank_holder_name")
+    @Column(name = "bank_holder_name",unique = true )
     private String bankHolderName;
 
     @Column(name = "account_number")
@@ -42,6 +43,11 @@ public class Account {
     @Column(name = "ifsc_number")
     private String ifscCode;
 
+    @Column(name ="age")
+    private int age;
+
+
+
 
     public Account( String bankHolderName, int accountNumber, String bankName, String bankAddress, String ifscCode) {
         this.bankHolderName = bankHolderName;
@@ -51,15 +57,16 @@ public class Account {
         this.ifscCode = ifscCode;
     }
 
-    @Override
-    public String toString() {
-        return "Account{" +
-                "id=" + id +
-                ", bankHolderName='" + bankHolderName + '\'' +
-                ", accountNumber=" + accountNumber +
-                ", bankName='" + bankName + '\'' +
-                ", bankAddress='" + bankAddress + '\'' +
-                ", ifscCode='" + ifscCode + '\'' +
-                '}';
+    public Account( String bankHolderName, int accountNumber, String bankName, String bankAddress, String ifscCode, int age) {
+
+        this.bankHolderName = bankHolderName;
+        this.accountNumber = accountNumber;
+        this.bankName = bankName;
+        this.bankAddress = bankAddress;
+        this.ifscCode = ifscCode;
+        this.age = age;
+
     }
+
+
 }
