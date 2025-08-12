@@ -1,4 +1,5 @@
-<!doctype html>
+<%@ page isELIgnored="false" %>
+
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -31,8 +32,12 @@
 
 <body>
 <h1>
-    Resultttttttttttttttttttttttt
+    <p>Result Page</p>
 </h1>
+
+<h3>
+    ${name}
+</h3>
 </div>
 
 

@@ -2,6 +2,7 @@ package com.xworkz.blogslinks.component;
 
 import com.xworkz.blogslinks.dto.ParotaDTO;
 import org.springframework.stereotype.Component;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Component
@@ -11,13 +12,19 @@ public class Parota {
         System.out.println("Const Parota...........");
     }
 
-    @RequestMapping("/checkParota")
-    public String getParota(ParotaDTO parotaDTO){
-        System.out.println("Parota is Available........");
-        System.out.println("Parota Type: " + parotaDTO.getParotaType());
-        System.out.println("Parota Price: " + parotaDTO.getParotaPrice());
-        System.out.println("Parota Quantity: " + parotaDTO.getParotaQuantity());
+//    @RequestMapping("/checkParota")
+//    public String getParota(ParotaDTO parotaDTO){
+//        System.out.println("Parota is Available........");
+//        System.out.println("Parota Type: " + parotaDTO.getParotaType());
+//        System.out.println("Parota Price: " + parotaDTO.getParotaPrice());
+//        System.out.println("Parota Quantity: " + parotaDTO.getParotaQuantity());
+//
+//        return "result";
+//    }
 
+    @RequestMapping("/checkParota")
+    public String getParota(Model model){
+        model.addAttribute("name","Parota");
         return "result";
     }
 }
