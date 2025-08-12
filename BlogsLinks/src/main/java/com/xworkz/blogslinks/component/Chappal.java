@@ -19,6 +19,6 @@ public class Chappal {
         System.out.println("Chappal Price: " + chappalDTO.getChappalPrice());
         System.out.println("Chappal Size: " + chappalDTO.getChappalSize());
 
-        return "chappal.jsp";
+        return "result";
     }
 }

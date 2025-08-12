@@ -204,6 +204,7 @@
         </div>
     </div>
 
+    <img src="spring-mvc.png" alt="img"/>
 
 </body>
 </html>

@@ -19,7 +19,7 @@ public class Soap {
         System.out.println("Soap Price: " + soapDTO.getSoapPrice());
         System.out.println("Soap Fragrance: " + soapDTO.getSoapFragrance());
 
-        return "soap.jsp";
+        return "soap";
     }
 
 }

@@ -19,7 +19,6 @@ public class Socks {
         System.out.println("Socks Brand: " + socksDTO.getSocksBrand());
         System.out.println("Socks Price: " + socksDTO.getSocksPrice());
         System.out.println("Socks Size: " + socksDTO.getSocksSize());
-
-        return "socks.jsp";
+        return "result";
     }
 }

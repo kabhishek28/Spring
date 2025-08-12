@@ -15,6 +15,6 @@ public class Bottle {
     public String checkBottle(String bottleType,String bottleBrand,int numberOfBottle){
 
         System.out.println(bottleBrand + ": Bottle is not Available...");
-        return "bottle.jsp";
+        return "result";
     }
 }

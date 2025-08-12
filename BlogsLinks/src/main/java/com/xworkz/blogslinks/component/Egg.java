@@ -18,6 +18,6 @@ public class Egg {
         System.out.println("Egg Price: " + eggDTO.getEggPrice());
         System.out.println("Egg Quantity: " + eggDTO.getEggQuantity());
 
-        return "egg.jsp";
+        return "result";
     }
 }

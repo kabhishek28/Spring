@@ -20,6 +20,6 @@ public class Chutney {
         System.out.println("Chutney Price: " + chutenyDTO.getChutneyPrice());
         System.out.println("Chutney Quantity: " + chutenyDTO.getChutneyQuantity());
 
-        return "chutney.jsp";
+        return "result";
     }
 }

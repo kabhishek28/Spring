@@ -14,6 +14,6 @@ public class Biryani {
     @RequestMapping("/checkBiryani")
     public String checkBiryani(@RequestParam String personName , @RequestParam String hotelName , @RequestParam int numberOfPlate){
         System.out.println("Biryani is Available at Hotel Name :"+ hotelName );
-        return "biryani.jsp";
+        return "result";
     }
 }

@@ -18,6 +18,6 @@ public class Parota {
         System.out.println("Parota Price: " + parotaDTO.getParotaPrice());
         System.out.println("Parota Quantity: " + parotaDTO.getParotaQuantity());
 
-        return "parota.jsp";
+        return "result";
     }
 }

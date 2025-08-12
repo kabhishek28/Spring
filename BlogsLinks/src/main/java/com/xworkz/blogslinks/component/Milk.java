@@ -19,6 +19,6 @@ public class Milk {
         System.out.println("Milk Price: " + milkDTO.getMilkPrice());
         System.out.println("Milk Quantity: " + milkDTO.getMilkQuantity());
 
-        return "milk.jsp";
+        return "result";
     }
 }

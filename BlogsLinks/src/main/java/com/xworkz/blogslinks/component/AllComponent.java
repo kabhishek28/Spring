@@ -12,67 +12,67 @@ public class AllComponent {
 
     @RequestMapping("/soap")
     public String getSoapPage(){
-        return "soap.jsp";
+        return "soap";
     }
 
     @RequestMapping("/butter")
     public String getButterPage(){
-        return "butter.jsp";
+        return "butter";
     }
 
     @RequestMapping("/bottel")
     public String getBottel(){
-        return "bottle.jsp";
+        return "bottle";
     }
 
     @RequestMapping("shoe")
     public String getShoe(){
-        return "shoe.jsp";
+        return "shoe";
     }
 
     @RequestMapping("/chappal")
     public String getChappal(){
-        return "chappal.jsp";
+        return "chappal";
     }
 
     @RequestMapping("/socks")
     public String getSocks(){
-        return "socks.jsp";
+        return "socks";
     }
 
     @RequestMapping("/chutney")
     public String getChutney(){
-        return "chutney.jsp";
+        return "chutney";
     }
 
     @RequestMapping("/onion")
     public String getOnion(){
-        return "onion.jsp";
+        return "onion";
     }
 
     @RequestMapping("/milk")
     public String getMilk(){
-        return "milk.jsp";
+        return "milk";
     }
 
     @RequestMapping("/curry")
     public String getCurry(){
-        return "curry.jsp";
+        return "curry";
     }
 
     @RequestMapping("/biryani")
     public String getBiryani(){
-        return "biryani.jsp";
+        return "biryani";
     }
 
     @RequestMapping("/parota")
     public String getParota(){
-        return "parota.jsp";
+        return "parota";
     }
 
     @RequestMapping("/egg")
     public String getEgg(){
-        return "egg.jsp";
+        return "egg";
     }
 
 

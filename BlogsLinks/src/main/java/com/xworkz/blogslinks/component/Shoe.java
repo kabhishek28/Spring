@@ -18,6 +18,6 @@ public class Shoe {
         System.out.println("Shoe Price: " + shoeDTO.getShoePrice());
         System.out.println("Shoe Size: " + shoeDTO.getShoeSize());
 
-        return "shoe.jsp";
+        return "shoe";
     }
 }

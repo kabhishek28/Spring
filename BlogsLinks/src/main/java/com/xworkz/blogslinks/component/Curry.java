@@ -18,6 +18,6 @@ public class Curry {
         System.out.println("Curry Price: " + curryDTO.getCurryPrice());
         System.out.println("Curry Quantity: " + curryDTO.getCurryQuantity());
 
-        return "curry.jsp";
+        return "result";
     }
 }

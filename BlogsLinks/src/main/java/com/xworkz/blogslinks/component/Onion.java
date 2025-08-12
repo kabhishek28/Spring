@@ -19,6 +19,6 @@ public class Onion {
         System.out.println("Onion Price: " + onionDTO.getOnionPrice());
         System.out.println("Onion Quantity: " + onionDTO.getOnionQuantity());
 
-        return "onion.jsp";
+        return "result";
     }
 }

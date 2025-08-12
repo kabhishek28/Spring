@@ -18,7 +18,7 @@ public class Butter {
             System.out.println("Butter Name :" + butterDTO.getButterName());
             System.out.println("Butter price :" + butterDTO.getButterPrice());
             System.out.println("Butter is Available...");
-            return "butter.jsp";
+            return "result";
         }
     }
 
