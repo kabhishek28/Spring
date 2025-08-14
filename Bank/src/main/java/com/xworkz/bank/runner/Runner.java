@@ -28,8 +28,8 @@ public class Runner {
 ////        System.out.println(dataService.saveValidation(list));
 ////        BeanUtils.copyProperties(list, dataService);
 
-        String save = dataService.saveValidation(list);
-        System.out.println(save);
+//        String save = dataService.saveValidation(list);
+//        System.out.println(save);
 
 
 
@@ -67,8 +67,8 @@ public class Runner {
 
 
 //        ************************* get Entity base on BAnkName and Bank Branch **************************
-//        List<Account> list1 = dataService.findEntityByNameAndBankBranchValidation("Kiran","HDFC");
-//        list1.stream().forEach(l-> System.out.println(l));
+        List<Account> list1 = dataService.findEntityByNameAndBankBranchValidation("Kiran","HDFC");
+        list1.stream().forEach(l-> System.out.println(l));
 
 
 
