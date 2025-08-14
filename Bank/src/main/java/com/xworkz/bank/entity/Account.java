@@ -20,7 +20,7 @@ import javax.persistence.*;
 @NamedQuery(name = "getAll" , query = "select entity from Account entity")
 @NamedQuery(name = "getEntityByName" , query = "select entity from Account entity where bank_holder_name =: bankHolderName")
 @NamedQuery(name = "getEntityByNameAndPlace" , query = "select entity from Account entity where bankHolderName =: bankHolderName and bankName =: bankName")
-
+@NamedQuery(name = "getEntityAGreaterThan18" , query = "select entity from Account entity where age > 18")
 public class Account {
 
     @Id
