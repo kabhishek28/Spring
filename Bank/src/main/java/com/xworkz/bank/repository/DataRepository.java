@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface DataRepository {
-    public void saveData(ArrayList<Account> account );
+    public void saveData(ArrayList<Account> account);
 
-    public String upDateData(int id , String name);
+    public String upDateData(int id, String name);
 
     public String getData(int id);
 
@@ -18,5 +18,7 @@ public interface DataRepository {
 
     public List<Account> findEntityNameByData(String name);
 
-    public List<Account> findEntityByNameAndBankBranchValidation(String name , String bankBranch);
+    public List<Account> findEntityByNameAndBankBranchValidation(String name, String bankBranch);
+
+    public List<Account> findEntityByAgeRepository();
 }

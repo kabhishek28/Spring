@@ -58,4 +58,9 @@ public class DataServiceImplementation implements DataService{
     public List<Account> findEntityByNameAndBankBranchValidation(String name, String bankBranch) {
         return new DataRepositoryImplementation().findEntityByNameAndBankBranchValidation(name,bankBranch);
     }
+
+    @Override
+    public List<Account> findEntityByAgeService() {
+        return ;
+    }
 }

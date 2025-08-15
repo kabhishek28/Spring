@@ -20,4 +20,5 @@ public interface DataService {
 
     public List<Account> findEntityByNameAndBankBranchValidation(String name , String bankBranch);
 
+    public List<Account> findEntityByAgeService();
 }
