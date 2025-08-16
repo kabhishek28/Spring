@@ -8,4 +8,11 @@ public interface UserDetailsRepository {
     Boolean saveDetailsToDataBase(BusDetailsEntity busDetailsEntity);
 
     List<BusDetailsEntity> getAllDataFromDataBase();
+
+    BusDetailsEntity getByIdFormDataBase(int id);
+
+    String upDataPhoneNoInDataBase(int id , long phoneNo);
+
+    String deleteDataByIdInDataBase(int id);
+
 }

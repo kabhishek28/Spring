@@ -16,30 +16,36 @@
         <h1 class="text-center">All Data</h1>
     </div>
 
-    <h2>Bus Details List</h2>
+    <h2> Details List By ID</h2>
 
     <table class="table table-bordered table-striped">
-        <thead>
+
+        <tbody>
+
         <tr>
             <th>Name</th>
-            <th>Email</th>
-            <th>Phone Number</th>
-            <th>Age</th>
-            <th>City</th>
-            <th>State</th>
+            <td>${bus.personName}</td>
         </tr>
-        </thead>
-        <tbody>
-        <c: items="${busList}" var="bus" >
-            <tr>
-                <td>${bus.personName}</td>
-                <td>${bus.personEmail}</td>
-                <td>${bus.personPhoneNumber}</td>
-                <td>${bus.personAge}</td>
-                <td>${bus.personCity}</td>
-                <td>${bus.personState}</td>
-            </tr>
-        </c:>
+        <tr>
+            <th>Email</th>
+            <td>${bus.personEmail}</td>
+        </tr>
+        <tr>
+            <th>Phone Number</th>
+            <td>${bus.personPhoneNumber}</td>
+        </tr>
+        <tr>
+            <th>Age</th>
+            <td>${bus.personAge}</td>
+        </tr>
+        <tr>
+            <th>City</th>
+            <td>${bus.personCity}</td>
+        </tr>
+        <tr>
+            <th>State</th>
+            <td>${bus.personState}</td>
+        </tr>
         </tbody>
     </table>
 

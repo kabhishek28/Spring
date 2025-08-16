@@ -45,6 +45,7 @@ public class UserDetailsRepositoryImplementation implements UserDetailsRepositor
             eT.begin();
             Query query = eM.createNamedQuery("getAllData");
             list = query.getResultList();
+
             eT.commit();
 
         }catch (Exception e){
@@ -56,5 +57,67 @@ public class UserDetailsRepositoryImplementation implements UserDetailsRepositor
         }
 
         return list;
+    }
+
+    @Override
+    public BusDetailsEntity getByIdFormDataBase(int id) {
+
+        BusDetailsEntity busDetailsEntity = new BusDetailsEntity();
+        EntityManager eM= eMF.createEntityManager();
+        EntityTransaction eT = eM.getTransaction();
+        try {
+            eT.begin();
+            Query query = eM.createNamedQuery("getById");
+            query.setParameter("person_ID",id);
+            busDetailsEntity = (BusDetailsEntity)query.getSingleResult();
+        }catch (Exception e){
+            if(eT.isActive()){
+                eT.rollback();
+            }
+        }finally {
+            eM.close();
+        }
+
+        return busDetailsEntity;
+    }
+
+    @Override
+    public String upDataPhoneNoInDataBase(int id, long phoneNo) {
+
+        EntityManager eM= eMF.createEntityManager();
+        EntityTransaction eT = eM.getTransaction();
+        try{
+            eT.begin();
+            BusDetailsEntity busDetailsEntity = eM.find(BusDetailsEntity.class,id);
+            busDetailsEntity.setPersonPhoneNumber(phoneNo);
+            eT.commit();
+        }catch (Exception e){
+            if(eT.isActive()){
+                eT.rollback();
+            }
+        }finally {
+            eM.close();
+        }
+        return "your Data has ben updated";
+    }
+
+    @Override
+    public String deleteDataByIdInDataBase(int id) {
+
+        EntityManager eM= eMF.createEntityManager();
+        EntityTransaction eT = eM.getTransaction();
+        try {
+            eT.begin();
+            BusDetailsEntity busDetailsEntity = eM.find(BusDetailsEntity.class,id);
+            eM.remove(busDetailsEntity);
+            eT.commit();
+        }catch (Exception e){
+            if(eT.isActive()){
+                eT.rollback();
+            }
+        }finally {
+            eM.close();
+        }
+        return "Your Data has Deleted";
     }
 }

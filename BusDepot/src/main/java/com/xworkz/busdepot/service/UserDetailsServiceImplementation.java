@@ -1,6 +1,7 @@
 package com.xworkz.busdepot.service;
 
 import com.xworkz.busdepot.dto.BusDetailsDTO;
+import com.xworkz.busdepot.dto.IdDTO;
 import com.xworkz.busdepot.entity.BusDetailsEntity;
 import com.xworkz.busdepot.repository.UserDetailsRepositoryImplementation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,20 +38,49 @@ public class UserDetailsServiceImplementation implements UserDetailsService {
         List<BusDetailsDTO> list = new ArrayList<>();
            List<BusDetailsEntity> list1 =    userDetailsRepositoryImplementation.getAllDataFromDataBase();
 
-           BusDetailsDTO busDetailsDTO = new BusDetailsDTO();
+
 
            for(BusDetailsEntity busDetailsEntity : list1){
-               busDetailsDTO.setPersonName(busDetailsEntity.getPersonName());
+               BusDetailsDTO busDetailsDTO = new BusDetailsDTO();
+                busDetailsDTO.setPersonName(busDetailsEntity.getPersonName());
                busDetailsDTO.setPersonEmail(busDetailsEntity.getPersonEmail());
                busDetailsDTO.setPersonPhoneNumber(busDetailsEntity.getPersonPhoneNumber());
                busDetailsDTO.setPersonAge(busDetailsEntity.getPersonAge());
                busDetailsDTO.setPersonCity(busDetailsEntity.getPersonCity());
                busDetailsDTO.setPersonState(busDetailsEntity.getPersonState());
-
-
                list.add(busDetailsDTO);
-
            }
+
         return list;
+    }
+
+    @Override
+    public BusDetailsDTO getById(int id) {
+
+        BusDetailsEntity busDetailsEntity = userDetailsRepositoryImplementation.getByIdFormDataBase(id);
+
+        BusDetailsDTO busDetailsDTO = new BusDetailsDTO();
+        busDetailsDTO.setPersonName(busDetailsEntity.getPersonName());
+        busDetailsDTO.setPersonEmail(busDetailsEntity.getPersonEmail());
+        busDetailsDTO.setPersonPhoneNumber(busDetailsEntity.getPersonPhoneNumber());
+        busDetailsDTO.setPersonAge(busDetailsEntity.getPersonAge());
+        busDetailsDTO.setPersonCity(busDetailsEntity.getPersonCity());
+        busDetailsDTO.setPersonState(busDetailsEntity.getPersonState());
+
+
+        return busDetailsDTO;
+    }
+
+    @Override
+    public String upDatePhoneNumber(IdDTO idDTO) {
+        int id = idDTO.getPersonId();
+        long phoneNo = idDTO.getPersonPhoneNumber();
+        return userDetailsRepositoryImplementation.upDataPhoneNoInDataBase(id,phoneNo);
+    }
+
+    @Override
+    public String deleteDataById(IdDTO idDTO) {
+
+        return userDetailsRepositoryImplementation.deleteDataByIdInDataBase(idDTO.getPersonId());
     }
 }

@@ -10,6 +10,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "bus_details_table")
 @NamedQuery(name = "getAllData" , query = "select entity from BusDetailsEntity entity")
+@NamedQuery(name = "getById" , query = "select entity from BusDetailsEntity entity where id =: person_ID")
 public class BusDetailsEntity {
 
     @Id
