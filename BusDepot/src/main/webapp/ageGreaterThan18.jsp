@@ -19,22 +19,14 @@
         <thead>
         <tr>
             <th>Name</th>
-            <th>Email</th>
-            <th>Phone Number</th>
-            <th>Age</th>
-            <th>City</th>
-            <th>State</th>
+
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${busList}" var="bus">
+        <c:forEach items="${nameList}" var="bus">
             <tr>
-                <td>${bus.personName}</td>
-                <td>${bus.personEmail}</td>
-                <td>${bus.personPhoneNumber}</td>
-                <td>${bus.personAge}</td>
-                <td>${bus.personCity}</td>
-                <td>${bus.personState}</td>
+                <td>${bus}</td>
+
             </tr>
         </c:forEach>
         </tbody>

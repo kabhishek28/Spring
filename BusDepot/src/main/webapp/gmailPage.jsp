@@ -16,10 +16,10 @@
             <div class="col">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title">enter Person ID to Delete</h5>
-                        <form action="deleteData" method="post">
-                            <label for="personID">PersonID</label>
-                            <input type="number" id="personID" placeholder="Enter Person ID to Delete" name="Id" >
+                        <h5 class="card-title">enter Person Gmail to Delete</h5>
+                        <form action="getGmailData" method="post">
+                            <label for="personID">Person Gmail</label>
+                            <input type="text" id="personID" placeholder="Enter Person Mail ID" name="personEmail" >
 
                             <div class="col-12">
                                 <button type="submit" class="btn btn-primary">Submit</button>

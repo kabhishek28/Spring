@@ -16,10 +16,10 @@
             <div class="col">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title">enter Person ID to Delete</h5>
-                        <form action="deleteData" method="post">
-                            <label for="personID">PersonID</label>
-                            <input type="number" id="personID" placeholder="Enter Person ID to Delete" name="Id" >
+                        <h5 class="card-title">enter Person Phone Number to Find</h5>
+                        <form action="getNameAndEmail" method="post">
+                            <label for="personID">Person Phone Number</label>
+                            <input type="number" id="personID" placeholder="Enter Person ID" name="personPhoneNumber" >
 
                             <div class="col-12">
                                 <button type="submit" class="btn btn-primary">Submit</button>

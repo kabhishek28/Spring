@@ -11,6 +11,10 @@ import javax.persistence.*;
 @Table(name = "bus_details_table")
 @NamedQuery(name = "getAllData" , query = "select entity from BusDetailsEntity entity")
 @NamedQuery(name = "getById" , query = "select entity from BusDetailsEntity entity where id =: person_ID")
+@NamedQuery(name = "getGmailbyGmail" , query = "select entity.personEmail from BusDetailsEntity entity where entity.personEmail like '%@gmail.com'")
+@NamedQuery(name = "deleteDataById" , query = "delete from BusDetailsEntity entity where entity.id =: personID")
+@NamedQuery(name = "getNameAndEmailByPhoneNumber" , query = "select e.personName , e.personEmail from BusDetailsEntity e where e.personPhoneNumber =: phoneNumber")
+@NamedQuery(name = "getNameAgeIsAbove", query = "select e.personName from BusDetailsEntity e where e.personAge > 18")
 public class BusDetailsEntity {
 
     @Id

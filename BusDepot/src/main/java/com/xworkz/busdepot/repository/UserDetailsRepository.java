@@ -15,4 +15,10 @@ public interface UserDetailsRepository {
 
     String deleteDataByIdInDataBase(int id);
 
+    List<String > getGmailByGmailByDataBase( );
+
+    BusDetailsEntity getNameAndGmailByDataBase(long phoneNumbre);
+
+    List<String> getNameAgeIsGreaterThan18FromDataBase();
+
 }

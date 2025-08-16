@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Repository
 public class UserDetailsRepositoryImplementation implements UserDetailsRepository{
@@ -119,5 +120,71 @@ public class UserDetailsRepositoryImplementation implements UserDetailsRepositor
             eM.close();
         }
         return "Your Data has Deleted";
+    }
+
+    @Override
+    public List<String> getGmailByGmailByDataBase( ) {
+        EntityManager eM= eMF.createEntityManager();
+        EntityTransaction eT = eM.getTransaction();
+List<String> list = new ArrayList<>();
+        try {
+            eT.begin();
+            Query query = eM.createNamedQuery("getGmailbyGmail");
+            list = query.getResultList();
+            eT.commit();
+        }catch (Exception e){
+            if(eT.isActive()){
+                eT.rollback();
+            }
+        }finally {
+            eM.close();
+        }
+        return list;
+    }
+
+    @Override
+    public BusDetailsEntity getNameAndGmailByDataBase(long phoneNumbre) {
+
+        EntityManager eM= eMF.createEntityManager();
+        EntityTransaction eT = eM.getTransaction();
+        BusDetailsEntity busDetailsEntity = new BusDetailsEntity();
+
+        try{
+            eT.begin();
+            Query query = eM.createNamedQuery("getNameAndEmailByPhoneNumber");
+            query.setParameter("phoneNumber" , phoneNumbre );
+            Object[] objects = (Object[]) query.getSingleResult();
+            busDetailsEntity.setPersonName((String) objects[0]);
+            busDetailsEntity.setPersonEmail((String) objects[1]);
+            eT.commit();
+        }catch (Exception e){
+            if(eT.isActive()){
+                eT.rollback();
+            }
+        }finally {
+            eM.close();
+        }
+        return busDetailsEntity;
+    }
+
+    @Override
+    public List<String> getNameAgeIsGreaterThan18FromDataBase() {
+
+        List<String> list = new ArrayList<>();
+        EntityManager eM= eMF.createEntityManager();
+        EntityTransaction eT = eM.getTransaction();
+        try{
+            eT.begin();
+            Query query = eM.createNamedQuery("getNameAgeIsAbove");
+            list = query.getResultList();
+
+        }catch (Exception e){
+            if(eT.isActive()){
+                eT.rollback();
+            }
+        }finally {
+            eM.close();
+        }
+        return list;
     }
 }

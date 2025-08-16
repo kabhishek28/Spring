@@ -6,5 +6,6 @@ import lombok.Data;
 public class IdDTO {
     private int personId;
     private long personPhoneNumber;
+    private String personGmail;
 }
 

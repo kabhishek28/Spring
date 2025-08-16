@@ -80,7 +80,7 @@
                         <h5 class="card-title">Get Email which has @gmail</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
                         <div class="col-12">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <a href="getGmailPage" type="submit" class="btn btn-primary">Submit</a>
                         </div>
                     </div>
                 </div>
@@ -92,7 +92,8 @@
                         <h5 class="card-title">Get Name And Email by Phone Number </h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
                         <div class="col-12">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <a href="getPhoneNumberPage" type="submit" class="btn btn-primary">Submit</a>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -104,7 +105,7 @@
                         <h5 class="card-title">Get Name where Age > 18</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
                         <div class="col-12">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <a type="submit" href="getAgeGreaterthan18" class="btn btn-primary">Submit</a>
                         </div>
                     </div>
                 </div>

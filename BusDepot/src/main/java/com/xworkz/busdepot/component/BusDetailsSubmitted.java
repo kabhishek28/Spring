@@ -81,13 +81,46 @@ public class BusDetailsSubmitted {
     }
 
     @RequestMapping("deleteData")
-    public String DeleteData(IdDTO idDTO){
-        String delete = userDetailsServiceImplementation.deleteDataById(idDTO);
+    public String DeleteData(int Id  ){
+        String delete = userDetailsServiceImplementation.deleteDataById(Id);
         if(!delete.equals("Your Data has Deleted")){
             return "notDeletedPage";
         }
         return "deletedPage";
+    }
 
+//    @RequestMapping("getGmailPage")
+//    public String getGmailPage(){
+//        return "gmailPage";
+//    }
+
+    @RequestMapping("getGmailPage")
+    public String getGmail(Model model){
+
+        List<String> list = userDetailsServiceImplementation.getGamilByGmail();
+        System.out.println(list);
+        model.addAttribute("list" , list);
+        return "gmailDataPage";
+    }
+
+    @RequestMapping("getPhoneNumberPage")
+    public String getPhoneNumberPage(){
+        return "phoneNumberPage";
+    }
+
+    @RequestMapping("getNameAndEmail")
+    public String getNameAndEmail(long personPhoneNumber,Model model){
+        BusDetailsDTO busDetailsDTO = userDetailsServiceImplementation.getNameAndGmail(personPhoneNumber);
+        model.addAttribute("name" , busDetailsDTO.getPersonName());
+        model.addAttribute("email" , busDetailsDTO.getPersonEmail());
+        return "nameAndEmail";
+    }
+
+    @RequestMapping("getAgeGreaterthan18")
+    public String getNameAgeIsGreaterThan18(Model model){
+        List<String> list = userDetailsServiceImplementation.getNameGreaterThan18();
+        model.addAttribute("nameList",list);
+        return "ageGreaterThan18";
     }
 }
 

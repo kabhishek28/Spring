@@ -79,8 +79,34 @@ public class UserDetailsServiceImplementation implements UserDetailsService {
     }
 
     @Override
-    public String deleteDataById(IdDTO idDTO) {
+    public String deleteDataById(int personId ) {
 
-        return userDetailsRepositoryImplementation.deleteDataByIdInDataBase(idDTO.getPersonId());
+        return userDetailsRepositoryImplementation.deleteDataByIdInDataBase(personId);
+    }
+
+    @Override
+    public  List<String> getGamilByGmail( ) {
+
+        return userDetailsRepositoryImplementation.getGmailByGmailByDataBase();
+
+
+
+
+
+
+    }
+
+    @Override
+    public BusDetailsDTO getNameAndGmail(long phoneNumber) {
+        BusDetailsEntity busDetailsEntity = userDetailsRepositoryImplementation.getNameAndGmailByDataBase(phoneNumber);
+        BusDetailsDTO busDetailsDTO = new BusDetailsDTO();
+        busDetailsDTO.setPersonName(busDetailsEntity.getPersonName());
+        busDetailsDTO.setPersonEmail(busDetailsEntity.getPersonEmail());
+        return busDetailsDTO;
+    }
+
+    @Override
+    public List<String> getNameGreaterThan18() {
+        return userDetailsRepositoryImplementation.getNameAgeIsGreaterThan18FromDataBase();
     }
 }
