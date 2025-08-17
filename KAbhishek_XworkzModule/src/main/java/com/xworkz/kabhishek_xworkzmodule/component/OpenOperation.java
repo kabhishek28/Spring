@@ -29,7 +29,7 @@ public class OpenOperation {
         String encryptedPassword = passwordEncoder.encode(userDTO.getUserPassword());
         System.out.println(encryptedPassword);
         System.out.println("============================================================================");
-        String store =...;
+//        String store =...;
         return "singIn";
     }
 
