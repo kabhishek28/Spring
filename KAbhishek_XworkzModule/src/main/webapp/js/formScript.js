@@ -12,7 +12,7 @@ function singUpValidation(event) {
     const password = document.getElementById("passwordID").value;
     const confirmPassword = document.getElementById("ConfirmPasswordID").value;
 
-    // Name validation
+
     if (name.length < 3 || name.length > 10) {
         alert("Name must be at least 3 characters and at Most 10 character");
         return false;

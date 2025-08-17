@@ -1,13 +1,17 @@
 package com.xworkz.kabhishek_xworkzmodule.component;
 
 import com.xworkz.kabhishek_xworkzmodule.dto.UserDTO;
-import com.xworkz.kabhishek_xworkzmodule.service.UserService;
 import com.xworkz.kabhishek_xworkzmodule.service.UserServiceImplementation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.validation.ObjectError;
 import org.springframework.stereotype.Component;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.validation.Valid;
+import java.util.List;
 
 @Component
 @RequestMapping
@@ -26,14 +30,25 @@ public class OpenOperation {
         return "singUp";
     }
 
+
+
     @RequestMapping("singInPage")
-    public String openSingInPage(UserDTO userDTO){
-        String value = userServiceImplementation.singUpUser(userDTO);
-        if(!value.equals("data has been Saved")){
-            return "notSingIn";
+    public String openSingInPage(@Valid UserDTO userDTO, BindingResult bindingResult, Model model){
+        if(bindingResult.hasErrors()){
+            System.err.println("invalid Data...........");
+            List<ObjectError> objectErrors = bindingResult.getAllErrors();
+            for(ObjectError objectError : objectErrors){
+                System.err.println(objectError.getDefaultMessage());
+            }
         }
+//        String value = userServiceImplementation.singUpUser(userDTO);
+//        if(!value.equals("data has been Saved")){
+//            return "notSingIn";
+//        }
         return "singIn";
     }
+
+
 
     @RequestMapping("directSignIn")
     public String openDirectSingInPage(){
