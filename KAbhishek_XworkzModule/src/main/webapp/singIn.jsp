@@ -11,9 +11,9 @@
           integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
 
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
-            crossorigin="anonymous"></script>
+<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"-->
+<!--            integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"-->
+<!--            crossorigin="anonymous"></script>-->
 
     <style>
         * {
@@ -74,13 +74,12 @@
             margin-left: 20px;
         }
     </style>
+    <script src="js/formScript.js"></script>
 </head>
 
 <body>
 
-<video class="fullscreen-bg" autoplay muted loop playsinline>
-    <source src="video/istockphoto-1365468767-640_adpp_is.mp4" type="video/mp4">
-</video>
+
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary" data-bs-theme="dark">
@@ -135,15 +134,15 @@
             <h6 class="card-subtitle mb-2 text-muted">Sing in your account</h6>
             <br>
             <!------------------ Sing in from--------- -->
-            <form action="homePage" method="GET">
+            <form action="homePage" onsubmit="return singInValidation(event)" method="GET">
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" name="emailName" placeholder="Enter your Email" aria-describedby="emailHelp">
+                    <label for="floatingInput" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="floatingInput" name="emailName" placeholder="Enter your Email" aria-describedby="emailHelp">
                     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter your Password" name="passwordName">
+                    <label for="passwordID" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="passwordID" placeholder="Enter your Password" name="passwordName">
                 </div>
 
                 <div class="mb-3">

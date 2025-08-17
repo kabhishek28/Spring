@@ -65,3 +65,28 @@ function singUpValidation(event) {
     // All validations passed → submit form
     return true;
 }
+
+function singUpValidation(event) {
+ const email = document.getElementById("floatingInput").value.trim();
+  const password = document.getElementById("passwordID").value;
+
+
+   const emailRegex = /^[a-zA-Z0-9._]+@gmail\.com$/;
+      if (!emailRegex.test(email)) {
+          alert("Email must be a valid Gmail address and can only contain letters, numbers, '.', and '_'. Example: example@gmail.com");
+          return false;
+      }
+
+
+  const passwordRegex = /^(?=.*[A-Z])(?=(?:.*\d){3,})(?=.*[!@#$%^&*()_+[\]{};':"\\|,.<>/?]).{5,15}$/;
+   if (!passwordRegex.test(password)) {
+       alert("Password must be 5-15 characters long, include at least 1 uppercase letter, 1 special character, and 3 digits.");
+       return false;
+   }
+
+   return true;
+}
+
+
+
+

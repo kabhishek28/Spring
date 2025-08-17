@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Festivo |index </title>
+    <title>Festivo | Sign In</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Bootstrap CSS -->
@@ -11,9 +11,9 @@
           integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
 
     <!-- Bootstrap JS -->
-<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"-->
-<!--            integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"-->
-<!--            crossorigin="anonymous"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+            crossorigin="anonymous"></script>
 
     <style>
         * {
@@ -58,40 +58,8 @@
             left: 5%;
             top: 55%;
             transform: translateY(-50%);
-        }
+            z-index: 1;
 
-        .extra-large-text1 {
-            color: white;
-            font-size: 4rem;
-            font-weight: bold;
-            margin: 0;
-            opacity: 0;
-        }
-
-        /* Animation */
-        @keyframes slideIn {
-            0% {
-                transform: translateX(-200px);
-                opacity: 0;
-            }
-
-            100% {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        .animate-text {
-            animation: slideIn 1s ease-out forwards;
-        }
-
-        /* Delay for second and third lines */
-        .delay-1 {
-            animation-delay: 0.5s;
-        }
-
-        .delay-2 {
-            animation-delay: 1s;
         }
 
         .extra-large-text1 {
@@ -110,7 +78,11 @@
 
 <body>
 
+<video class="fullscreen-bg" autoplay muted loop playsinline>
+    <source src="video/istockphoto-1365468767-640_adpp_is.mp4" type="video/mp4">
+</video>
 
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary" data-bs-theme="dark">
     <div class="container-fluid px-4">
         <!-- Logo -->
@@ -155,12 +127,35 @@
     </div>
 </nav>
 
+<!-- Right Centered Sign in Card -->
+<div class="right-center-wrapper">
+    <div class="card" style="width: 30rem; height: 30rem;">
+        <div class="card-body">
+            <h5 class="card-title">Sign in</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Sing in your account</h6>
+            <br>
+            <!------------------ Sing in from--------- -->
+           <h1>YOUR DATA NOT SAVED</h1>
+            <!--                <a href="Home" class="btn btn-primary">Submit</a><br>-->
+            <a href="#" class="card-link">Need help?</a>
 
-<div class="left-center">
-    <h1 class="extra-large-text1 animate-text">X-Workz</h1>
-    <h2 class="extra-large-text1 animate-text delay-1">ODC</h2>
-<!--    <h3 class="extra-large-text1 animate-text delay-2">NOT CHAOS.</h3>-->
+        </div>
+    </div>
 </div>
+
+<!--------------------------- content brooooo------------------------ -->
+<div class="left-center">
+    <h1 class="   extra-large-text1 ">
+        CREATE <h2 class="   extra-large-text1 ">MEMORIES,</h2>
+    </h1>
+    <h3 class="   extra-large-text1 ">NOT CHAOS.</h3>
+</div>
+
+
+
+
+
+
 
 </body>
 
