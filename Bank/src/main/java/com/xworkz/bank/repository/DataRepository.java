@@ -20,5 +20,5 @@ public interface DataRepository {
 
     public List<Account> findEntityByNameAndBankBranchValidation(String name, String bankBranch);
 
-    public List<Account> findEntityByAgeRepository();
+//    public List<Account> findEntityByAgeRepository();
 }

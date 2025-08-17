@@ -157,11 +157,11 @@ public class DataRepositoryImplementation implements DataRepository{
         return list;
     }
 
-    @Override
-    public List<Account> findEntityByAgeRepository() {
-        eMF = Persistence.createEntityManagerFactory("BankUnit");
-        eM = eMF.createEntityManager();
-        eT = eM.getTransaction();
-        return List.of();
-    }
+//    @Override
+//    public List<Account> findEntityByAgeRepository() {
+//        eMF = Persistence.createEntityManagerFactory("BankUnit");
+//        eM = eMF.createEntityManager();
+//        eT = eM.getTransaction();
+//        return List.of();
+//    }
 }
