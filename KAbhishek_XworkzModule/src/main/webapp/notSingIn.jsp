@@ -145,10 +145,9 @@
 
 <!--------------------------- content brooooo------------------------ -->
 <div class="left-center">
-    <h1 class="   extra-large-text1 ">
-        CREATE <h2 class="   extra-large-text1 ">MEMORIES,</h2>
-    </h1>
-    <h3 class="   extra-large-text1 ">NOT CHAOS.</h3>
+    <h1 class="extra-large-text1 animate-text">X-Workz</h1>
+    <h2 class="extra-large-text1 animate-text delay-1">ODC</h2>
+    <!--    <h3 class="extra-large-text1 animate-text delay-2">NOT CHAOS.</h3>-->
 </div>
 
 

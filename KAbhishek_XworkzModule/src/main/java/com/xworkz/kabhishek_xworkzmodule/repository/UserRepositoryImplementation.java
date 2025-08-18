@@ -23,6 +23,8 @@ public class UserRepositoryImplementation implements UserRepository{
             eT.commit();
         }catch (Exception e){
             if(eT.isActive()){
+                System.out.println(e.getMessage());
+
                 eT.rollback();
                 return "data not saved";
             }

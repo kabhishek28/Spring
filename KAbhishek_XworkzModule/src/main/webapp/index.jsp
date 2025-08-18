@@ -148,16 +148,25 @@
                     <a class="nav-link active" href="directSignIn">Sign In</a>
                 </li>
             </ul>
+
         </div>
     </div>
 </nav>
 
 
-<div class="left-center">
-    <h1 class="extra-large-text1 animate-text">X-Workz</h1>
-    <h2 class="extra-large-text1 animate-text delay-1">ODC</h2>
+<div class="left-center d-flex">
+    <div>
+        <h1 class="extra-large-text1 animate-text">X-Workz</h1>
+        <h2 class="extra-large-text1 animate-text delay-1">ODC</h2>
+    </div>
+
 <!--    <h3 class="extra-large-text1 animate-text delay-2">NOT CHAOS.</h3>-->
+
+        <img src="image/pc.png" alt="Logo" width="550" height="500">
+
+
 </div>
+
 
 </body>
 

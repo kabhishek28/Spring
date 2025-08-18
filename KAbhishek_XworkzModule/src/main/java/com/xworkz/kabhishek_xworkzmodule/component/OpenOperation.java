@@ -34,17 +34,17 @@ public class OpenOperation {
 
     @RequestMapping("singInPage")
     public String openSingInPage(@Valid UserDTO userDTO, BindingResult bindingResult, Model model){
-        if(bindingResult.hasErrors()){
-            System.err.println("invalid Data...........");
-            List<ObjectError> objectErrors = bindingResult.getAllErrors();
-            for(ObjectError objectError : objectErrors){
-                System.err.println(objectError.getDefaultMessage());
-            }
-        }
-//        String value = userServiceImplementation.singUpUser(userDTO);
-//        if(!value.equals("data has been Saved")){
-//            return "notSingIn";
+//        if(bindingResult.hasErrors()){
+//            System.err.println("invalid Data...........");
+//            List<ObjectError> objectErrors = bindingResult.getAllErrors();
+//            for(ObjectError objectError : objectErrors){
+//                System.err.println(objectError.getDefaultMessage());
+//            }
 //        }
+        String value = userServiceImplementation.singUpUser(userDTO);
+        if(!value.equals("data has been Saved")){
+            return "notSingIn";
+        }
         return "singIn";
     }
 

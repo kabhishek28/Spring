@@ -13,8 +13,6 @@ public class UserDTO {
     @NotNull
     @Size(min=3,max = 30,message = "User Name should be between 3 and 30")
     private String userName;
-
-
     private String userEmail;
     private long userPhoneNo;
     private int userAge;

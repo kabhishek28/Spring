@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Festivoo | Sign Up</title>
@@ -103,7 +103,7 @@
             margin-left: 20px;
         }
     </style>
-    <script src="js/formScript.js"></script>
+
 </head>
 
 <body>
@@ -163,7 +163,7 @@
             <h6 class="card-subtitle mb-2 text-muted">Sing up your account</h6>
 
             <!------------------ Sing up from--------- -->
-            <form  class="p-4" action="singInPage" onsubmit="return singUpValidation(event)"  method="post" >
+            <form  class="p-4" onsubmit="return singUpValidation(event)" action="singInPage"   method="post" >
                 <div class="row g-3 mb-3">
                     <div class="col-md-6">
                         <label for="NameID" class="form-label">Name</label>
@@ -234,7 +234,10 @@
     <h2 class="extra-large-text1 animate-text delay-1">ODC</h2>
     <!--    <h3 class="extra-large-text1 animate-text delay-2">NOT CHAOS.</h3>-->
 </div>
+<script src="<c:url value='/resources/js/formScript.js' />"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 
 </body>
+
 
 </html>
