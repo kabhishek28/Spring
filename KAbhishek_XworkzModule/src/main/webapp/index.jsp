@@ -162,7 +162,7 @@
 
 <!--    <h3 class="extra-large-text1 animate-text delay-2">NOT CHAOS.</h3>-->
 
-        <img src="image/pc.png" alt="Logo" width="550" height="500">
+        <img src="image/om.jpg" alt="Logo" width="550" height="500">
 
 
 </div>
