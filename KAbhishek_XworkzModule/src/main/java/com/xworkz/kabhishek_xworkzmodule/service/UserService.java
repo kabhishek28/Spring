@@ -6,4 +6,6 @@ public interface UserService {
     public String singUpUser(UserDTO userDTO);
 
     public boolean singInUser(String email,String password);
+
+
 }

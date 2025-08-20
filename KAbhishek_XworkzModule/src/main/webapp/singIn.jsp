@@ -150,7 +150,7 @@
                 </div>
             </form>
             <!--                <a href="Home" class="btn btn-primary">Submit</a><br>-->
-            <a href="#" class="card-link">Need help?</a>
+            <a href="passwordForgot" class="card-link">Password Forgot</a>
 
         </div>
     </div>

@@ -8,6 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import java.util.Properties;
+
 
 @Service
 public class UserServiceImplementation implements UserService{
@@ -30,9 +35,49 @@ public class UserServiceImplementation implements UserService{
         userEntity.setUserAddress(userDTO.getUserAddress());
 
         userEntity.setUserPassword(passwordEncoder.encode(userDTO.getUserPassword()));
+        sendEmail(userEntity.getUserEmail());
 
 
         return userRepositoryImplementation.singUpUserToDataBase(userEntity);
+
+    }
+
+    private void sendEmail(String email){
+        final String username = "kabhishek.eng@gmail.com";
+        final String password = "voyy beef kyoc ahsn";
+
+        Properties prop = new Properties();
+        prop.put("mail.smtp.host", "smtp.gmail.com");
+        prop.put("mail.smtp.port", "587");
+        prop.put("mail.smtp.auth", "true");
+        prop.put("mail.smtp.starttls.enable", "true"); //TLS
+
+        Session session = Session.getInstance(prop,
+                new javax.mail.Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(username, password);
+                    }
+                });
+
+        try {
+
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(username));
+            message.setRecipients(
+                    Message.RecipientType.TO,
+                    InternetAddress.parse(email)
+            );
+            message.setSubject("Testing Gmail TLS");
+            message.setText("Dear Mail Crawler,"
+                    + "\n\n Please do not spam my email!");
+
+            Transport.send(message);
+
+            System.out.println("Done");
+
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -40,6 +85,7 @@ public class UserServiceImplementation implements UserService{
     public boolean singInUser(String email, String password) {
         UserEntity userEntity1 = userRepositoryImplementation.singInUserToDatabase(email);
         String fromDataBasePassword = userEntity1.getUserPassword();
+
 
 
 
