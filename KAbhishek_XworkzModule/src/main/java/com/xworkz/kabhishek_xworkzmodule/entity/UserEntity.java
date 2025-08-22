@@ -8,8 +8,13 @@ import javax.persistence.*;
 @Entity
 @Table(name = "user_xworkz_module_table")
 @NamedQuery(name = "getEmailAndPassword",query = "select  e from UserEntity e where e.userEmail =: emailBy")
-public class UserEntity {
+//@NamedQuery(name = "findUserByEmail", query = "SELECT e FROM UserEntity e WHERE e.userEmail = :emailBy")
+//
+//@NamedQuery(name = "upDatePasswordByEncodedPassword",query = "UPDATE UserEntity e SET e.userPassword =   where e.userEmail =: emailBy")
 
+@NamedQuery(name = "upaDatePasswordByGmail",query = "UPDATE UserEntity e SET e.userPassword =: passwordBy where e.userEmail =: emailBy")
+
+public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")

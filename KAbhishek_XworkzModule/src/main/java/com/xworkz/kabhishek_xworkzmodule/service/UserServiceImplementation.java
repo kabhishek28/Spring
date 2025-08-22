@@ -15,7 +15,7 @@ import java.util.Properties;
 
 
 @Service
-public class UserServiceImplementation implements UserService{
+public  class UserServiceImplementation implements UserService{
 
     @Autowired
     UserRepositoryImplementation userRepositoryImplementation ;
@@ -86,9 +86,32 @@ public class UserServiceImplementation implements UserService{
         UserEntity userEntity1 = userRepositoryImplementation.singInUserToDatabase(email);
         String fromDataBasePassword = userEntity1.getUserPassword();
 
-
-
-
         return  passwordEncoder.matches(password,fromDataBasePassword);
     }
+
+    @Override
+    public boolean upDatePassword(String email, String password, String confirmPassword) {
+        if (password.equals(confirmPassword)) {
+
+           return userRepositoryImplementation.UpDatePassword(email, passwordEncoder.encode(password));
+
+        }
+        return false;
+    }
+
+//    @Override
+//    public boolean getGmailIsExist(String email) {
+//
+//        return userRepositoryImplementation.getGmailIsExist(email);
+//    }
+//
+//    @Override
+//    public void setPassword(String email ,String password, String confirmPassword) {
+//        if(password.equals(confirmPassword)) {
+//            String encodedPassword = passwordEncoder.encode(password);
+//            UserRepositoryImplementation.setForgotPassword(email, password);
+//        }
+//
+//
+//    }
 }

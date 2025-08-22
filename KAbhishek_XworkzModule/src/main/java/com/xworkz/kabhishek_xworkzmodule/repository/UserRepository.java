@@ -7,4 +7,11 @@ public interface UserRepository {
 
     public UserEntity singInUserToDatabase(String email );
 
+    public boolean UpDatePassword(String email , String password);
+
+//    public boolean getGmailIsExist(String gmail);
+//
+//    public void setForgotPassword(String gmail , String encodedPassword);
+//
+
 }

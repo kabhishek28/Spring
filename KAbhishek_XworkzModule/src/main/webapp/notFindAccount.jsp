@@ -11,9 +11,9 @@
           integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
 
     <!-- Bootstrap JS -->
-<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"-->
-<!--            integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"-->
-<!--            crossorigin="anonymous"></script>-->
+    <!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"-->
+    <!--            integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"-->
+    <!--            crossorigin="anonymous"></script>-->
 
     <style>
         * {
@@ -128,32 +128,26 @@
 
 <!-- Right Centered Sign in Card -->
 <div class="right-center-wrapper">
-    <div class="card" style="width: 30rem; height: 30rem;">
+    <div class="card shadow-lg border-0 rounded-3" style="width: 30rem; height: 30rem;">
         <div class="card-body">
-            <h5 class="card-title">Sign in</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Sing in your account</h6>
+            <h5 class="card-title">Find Account</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Finding Your Account</h6>
             <br>
-            <!------------------ Sing in from--------- -->
-            <form action="homePage" onsubmit="return singInValidation(event)" method="GET">
-                <div class="mb-3">
-                    <label for="floatingInput" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="floatingInput" name="emailName" placeholder="Enter your Email" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                </div>
-                <div class="mb-3">
-                    <label for="passwordID" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="passwordID" placeholder="Enter your Password" name="passwordName">
-                </div>
 
-                <div class="mb-3">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-            </form>
-            <!--                <a href="Home" class="btn btn-primary">Submit</a><br>-->
-            <a type="submit" class="btn btn-primary" href="findGmailAccount" class="card-link">Password Forgot</a>
+            <!-- Error Message with Sign Up -->
+            <div class="alert alert-danger text-center rounded-3 shadow-sm" role="alert">
+                <strong>User not found!</strong> Please check your email.
+                <br><br>
+                <a href="signUpPage" class="btn btn-outline-light btn-sm" style="background-color: #dc3545;">
+                    Create Account
+                </a>
+            </div>
+
         </div>
     </div>
 </div>
+
+
 <!--------------------------- content brooooo------------------------ -->
 <div class="left-center">
     <h1 class="extra-large-text1 animate-text">X-Workz</h1>

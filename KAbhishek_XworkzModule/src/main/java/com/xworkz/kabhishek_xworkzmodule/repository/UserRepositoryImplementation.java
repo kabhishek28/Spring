@@ -4,6 +4,7 @@ import com.xworkz.kabhishek_xworkzmodule.entity.UserEntity;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Repository
 public class UserRepositoryImplementation implements UserRepository{
@@ -16,8 +17,6 @@ public class UserRepositoryImplementation implements UserRepository{
         EntityTransaction eT = eM.getTransaction();
 
         try{
-
-
             eT.begin();
             eM.persist(userEntity);
             eT.commit();
@@ -42,7 +41,6 @@ public class UserRepositoryImplementation implements UserRepository{
         UserEntity userEntity = new UserEntity();
 
         try{
-
             eT.begin();
 
             Query query = eM.createNamedQuery("getEmailAndPassword");
@@ -60,6 +58,69 @@ public class UserRepositoryImplementation implements UserRepository{
             eM.close();
         }
         return userEntity;
-
     }
+
+    @Override
+    public boolean UpDatePassword(String email, String password) {
+        EntityManager eM = eMF.createEntityManager();
+        EntityTransaction eT = eM.getTransaction();
+        try {
+            eT.begin();
+           Query query =  eM.createNamedQuery("upaDatePasswordByGmail");
+           query.setParameter("emailBy",email);
+           query.setParameter("passwordBy",password);
+
+            int i = query.executeUpdate();
+
+            eT.commit();
+            if(i != 0){
+                return true;
+            }
+
+        }catch(Exception e) {
+            if (eT.isActive()) {
+                eT.rollback();
+            }
+        }finally {
+            eM.close();
+        }
+       return false;
+    }
+
+//    @Override
+//    public boolean getGmailIsExist(String gmail) {
+//        EntityManager  eM = eMF.createEntityManager();
+//        EntityTransaction eT = eM.getTransaction();
+//
+//        System.out.println("////////////");
+//        try {
+//            eT.begin();
+//            Query query = eM.createNamedQuery("findUserByEmail", UserEntity.class);
+//            query.setParameter("emailBy" , gmail);
+//            List<UserEntity> resultList = query.getResultList();
+//
+//            if (!resultList.isEmpty()) {
+//               return true;
+//            }
+//            eT.commit();
+//
+//        }catch (Exception e){
+//            if(eT.isActive()){
+//                eT.rollback();
+//            }
+//        }finally {
+//            eM.close();
+//        }
+//        return false;
+//    }
+//
+//    @Override
+//    public void setForgotPassword(String email , String encodedPassword) {
+//        EntityManager eM = eMF.createEntityManager();
+//        EntityTransaction eT = eM.getTransaction();
+//        try{
+//            eT.begin();
+////            eM.createNamedQuery()
+//        }
+//    }
 }

@@ -65,4 +65,30 @@ public class OpenOperation {
         }
         return "home";
     }
+
+    @RequestMapping("findGmailAccount")
+    public String openFindAccountPage(){
+        return "findAccount";
+    }
+
+    @RequestMapping("forgotpassword")
+    public String openPasswordPage(String emailName,String forgotPassword, String confirmPassword ) {
+        System.out.println(emailName);
+        System.out.println(forgotPassword);
+        System.out.println(confirmPassword);
+
+        boolean value = userServiceImplementation.upDatePassword(emailName,forgotPassword,confirmPassword);
+        if(value == true){
+            return "singIn";
+        }
+
+        return "notFindAccount";
+    }
+
+//    @RequestMapping("afterForgotSingInPage")
+//    public String openSingInAfterForgotPassword(String forgotPassword, String confirmPassword){
+//        System.out.println("forgotPassword ="+forgotPassword);
+//        System.out.println("confirm ="+confirmPassword);
+//        return "singIn";
+//    }
 }
