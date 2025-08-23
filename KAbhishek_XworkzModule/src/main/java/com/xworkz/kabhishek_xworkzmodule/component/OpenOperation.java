@@ -57,7 +57,6 @@ public class OpenOperation {
 
     @RequestMapping("homePage")
     public String openHomePage(String emailName,String passwordName){
-
         boolean value = userServiceImplementation.singInUser(emailName,passwordName);
         System.out.println("value +++++++++++++++++ " + value );
         if(value == false){
