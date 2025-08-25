@@ -53,3 +53,8 @@ function singUpValidation(event) {
 
     return true; // allow form submission
 }
+
+function nameValidation(){
+const name = document.getElementById("NameID").value;
+
+}

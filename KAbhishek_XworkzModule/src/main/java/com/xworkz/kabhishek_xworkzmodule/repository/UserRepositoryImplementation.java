@@ -66,7 +66,7 @@ public class UserRepositoryImplementation implements UserRepository{
         EntityTransaction eT = eM.getTransaction();
         try {
             eT.begin();
-           Query query =  eM.createNamedQuery("upaDatePasswordByGmail");
+           Query query =  eM.createNamedQuery("upDatePasswordByGmail");
            query.setParameter("emailBy",email);
            query.setParameter("passwordBy",password);
 

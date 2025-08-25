@@ -167,7 +167,7 @@
                 <div class="row g-3 mb-3">
                     <div class="col-md-6">
                         <label for="NameID" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="NameID" name="userName" placeholder="Enter your name" required>
+                        <input type="text" class="form-control" id="NameID" name="userName" placeholder="Enter your name" onclick="return nameValidation();" required>
                     </div>
 
                     <div class="col-md-6">

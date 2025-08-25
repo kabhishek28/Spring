@@ -80,7 +80,6 @@ public class OpenOperation {
         if(value == true){
             return "singIn";
         }
-
         return "notFindAccount";
     }
 
