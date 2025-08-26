@@ -102,6 +102,8 @@
         .webName {
             margin-left: 20px;
         }
+
+
     </style>
 
 </head>
@@ -157,56 +159,67 @@
 
 <!-- Right Centered Sign Up Card -->
 <div class="right-center-wrapper">
-    <div class="card" style="width: 30rem; height: 35rem;">
+    <div class="card" style="width: 30rem; height: auto;">
         <div class="card-body">
             <h5 class="card-title">Sign up</h5>
             <h6 class="card-subtitle mb-2 text-muted">Sing up your account</h6>
 
             <!------------------ Sing up from--------- -->
-            <form  class="p-4" onsubmit="return singUpValidation(event)" action="singInPage"   method="post" >
+            <form  class="p-4"  action="singInPage"   method="post" >
                 <div class="row g-3 mb-3">
                     <div class="col-md-6">
                         <label for="NameID" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="NameID" name="userName" placeholder="Enter your name" onclick="return nameValidation();" required>
+                        <input type="text" class="form-control" id="NameID" name="userName" placeholder="Enter your name" oninput="nameValidation()" maxlength="10"  required>
+                        <div id="NameError" class="input-text text-danger"></div>
                     </div>
 
                     <div class="col-md-6">
-                        <label for="floatingInput" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="floatingInput" name="userEmail" placeholder="name@example.com" required>
+                        <label for="emailID" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="emailID" name="userEmail" placeholder="name@example.com" oninput="emailValidation()" required>
+                        <div id="emailError" class = "input-text text-danger"></div>
                     </div>
                 </div>
 
                 <div class="row g-3 mb-3">
                     <div class="col-md-6">
                         <label for="phoneID" class="form-label">Phone Number</label>
-                        <input type="tel" class="form-control" id="phoneID" name="userPhoneNo" placeholder="e.g. +91 98765 43210" required>
+                        <input type="tel" class="form-control" id="phoneID" name="userPhoneNo" placeholder="e.g. +91 98765 43210" oninput="phoneValidation()" required>
+                        <div id="phoneError" class = "input-text text-danger"></div>
+
                     </div>
 
                     <div class="col-md-3">
                         <label for="ageID" class="form-label">Age</label>
-                        <input type="number" class="form-control" id="ageID" name="userAge" placeholder="Enter age" required>
+                        <input type="number" class="form-control" id="ageID" name="userAge" placeholder="Enter age" oninput="ageValidation()" required>
+                        <div id="ageError" class = "input-text text-danger"></div>
                     </div>
 
                     <div class="col-md-3">
                         <label for="genderID" class="form-label">Gender</label>
-                        <select id="genderID" class="form-select" name="userGender" required>
+                        <select id="genderID" class="form-select" name="userGender" oninput="genderValidation()" required>
                             <option selected disabled>Choose...</option>
                             <option value="M">Male</option>
                             <option value="F">Female</option>
                             <option value="O">Other</option>
                         </select>
                     </div>
+                    <div id="genderError" class = "input-text text-danger"></div>
+
                 </div>
 
                 <div class="mb-3">
                     <label for="addressID" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="addressID" name="userAddress" placeholder="Enter address" required>
+                    <input type="text" class="form-control" id="addressID" name="userAddress" placeholder="Enter address" oninput="addressValidation()" required>
+                    <div id="addressError" class = "input-text text-danger"></div>
+
                 </div>
 
                 <div class="row g-3 mb-3">
                     <div class="col-md-6">
                         <label for="passwordID" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="passwordID" name="userPassword" placeholder="Password" required>
+                        <input type="password" class="form-control" id="passwordID" name="userPassword" placeholder="Password" oninput="passwordValidation()" required>
+                        <div id="PasswordError" class = "input-text text-danger"></div>
+
                     </div>
 
                     <div class="col-md-6">
@@ -234,7 +247,7 @@
     <h2 class="extra-large-text1 animate-text delay-1">ODC</h2>
     <!--    <h3 class="extra-large-text1 animate-text delay-2">NOT CHAOS.</h3>-->
 </div>
-<script src="<c:url value='/resources/js/formScript.js' />"></script>
+<SCRIPT src="resources/js/formScript.js"></SCRIPT>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 
 </body>

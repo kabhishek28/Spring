@@ -1,60 +1,91 @@
-function singUpValidation(event) {
-    const name = document.getElementById("NameID").value;
-    const email = document.getElementById("floatingInput").value.trim();
-    const phone = document.getElementById("phoneID").value.trim();
-    const age = parseInt(document.getElementById("ageID").value);
-    const gender = document.getElementById("genderID").value;
-    const address = document.getElementById("addressID").value;
-    const password = document.getElementById("passwordID").value;
-    const confirmPassword = document.getElementById("ConfirmPasswordID").value;
+function nameValidation(){
 
-    if (name.length < 3 || name.length > 10) {
-        alert("Name must be between 3 and 10 characters.");
-        return false;
-    }
+let nameInput = document.getElementById("NameID").value;
+let nameError = document.getElementById("NameError");
 
-    const emailRegex = /^[a-zA-Z0-9._]+@gmail\.com$/;
-    if (!emailRegex.test(email)) {
-        alert("Invalid Gmail address.");
-        return false;
-    }
+ const nameRegex = /^[A-Za-z]+$/;
 
-    const phoneRegex = /^\+91\s?[6-9]\d{9}$/;
-    if (!phoneRegex.test(phone)) {
-        alert("Invalid Indian phone number.");
-        return false;s
-    }
+ if (nameInput.length < 3 || nameInput.length > 10) {
+     nameError.textContent = " Name must be between 3 and 10 characters.";
+ } else if (!nameRegex.test(nameInput)) {
+     nameError.textContent = " Name should contain only letters (A-Z, a-z).";
+ } else {
+     nameError.textContent = "";
+ }
 
-    if (isNaN(age) || age < 15 || age > 50) {
-        alert("Age must be between 15 and 50.");
-        return false;
-    }
-
-    if (gender === "Choose...") {
-        alert("Please select your gender.");
-        return false;
-    }
-
-    if (address.length < 5) {
-        alert("Address must be at least 5 characters long.");
-        return false;
-    }
-
-    const passwordRegex = /^(?=.*[A-Z])(?=(?:.*\d){3,})(?=.*[!@#$%^&*()_+\[\]{};':"\\|,.<>\/?]).{5,15}$/;
-    if (!passwordRegex.test(password)) {
-        alert("Password must be 5–15 characters, include 1 uppercase, 3 digits, and 1 special character.");
-        return false;
-    }
-
-    if (password !== confirmPassword) {
-        alert("Passwords do not match.");
-        return false;
-    }
-
-    return true; // allow form submission
 }
 
-function nameValidation(){
-const name = document.getElementById("NameID").value;
+function emailValidation(){
+let emailInput = document.getElementById("emailID").value;
+let emailError = document.getElementById("emailError");
 
+const emailRegex = /^[a-zA-Z0-9._]+@gmail\.com$/;
+    if (!emailRegex.test(emailInput)) {
+       emailError.textContent = "Please enter a valid Gmail address (example: name@gmail.com)";
+    }else{
+    emailError.textContent="";
+    }
+}
+
+function phoneValidation() {
+    let phoneInput = document.getElementById("phoneID").value;
+    let phoneError = document.getElementById("phoneError");
+
+    const phoneRegex = /^\+91\s?[6-9]\d{9}$/;
+
+    if (!phoneRegex.test(phoneInput)) {
+        phoneError.textContent = " Invalid Indian phone number. Example: +91 9876543210";
+    } else {
+        phoneError.textContent = "";
+    }
+}
+
+function ageValidation() {
+    let ageInput = document.getElementById("ageID").value;
+    let ageError = document.getElementById("ageError");
+
+    if (ageInput < 15 || ageInput > 50) {
+        ageError.textContent = " Age must be between 15 and 50.";
+    } else {
+        ageError.textContent = "";
+    }
+}
+
+function genderValidation() {
+    let genderInput = document.getElementById("genderID").value;
+    let genderError = document.getElementById("genderError");
+
+    if (genderInput === "Choose...") {
+        genderError.textContent = " Please select your gender.";
+    } else {
+        genderError.textContent = "";
+    }
+}
+
+function addressValidation() {
+    let addressInput = document.getElementById("addressID").value;
+    let addressError = document.getElementById("addressError");
+
+    if (addressInput.trim().length < 5) {
+        addressError.textContent = " Address must be at least 5 characters long.";
+    } else {
+        addressError.textContent = "";
+    }
+}
+
+
+function passwordValidation() {
+    let password = document.getElementById("passwordID").value;
+    let confirmPassword = document.getElementById("ConfirmPasswordID").value;
+    let passwordError = document.getElementById("PasswordError");
+
+    const passwordRegex = /^(?=.*[A-Z])(?=(?:.*\d){3,})(?=.*[!@#$%^&*()_+\[\]{};':"\\|,.<>\/?]).{5,15}$/;
+
+    if (!passwordRegex.test(password)) {
+        passwordError.textContent = " Password must be 5–15 characters, include 1 uppercase, 3 digits, and 1 special character.";
+    } else if (password !== confirmPassword) {
+        passwordError.textContent = " Passwords do not match.";
+    } else {
+        passwordError.textContent = "";
+    }
 }
