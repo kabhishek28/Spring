@@ -144,7 +144,7 @@
                 <div class="mb-3">
                     <label for="passwordID" class="form-label">Password</label>
                     <input type="password" class="form-control" id="passwordID" placeholder="Enter your Password" name="passwordName" oninput=" passwordValidation()">
-                    <div id="PasswordError" class="input-text text-danger"></div>
+                    <div id="PasswordError" class="input-text text-danger"> </div>
                 </div>
 
                 <div class="mb-3">
