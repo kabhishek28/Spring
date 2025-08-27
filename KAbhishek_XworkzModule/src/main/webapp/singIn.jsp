@@ -134,15 +134,17 @@
             <h6 class="card-subtitle mb-2 text-muted">Sing in your account</h6>
             <br>
             <!------------------ Sing in from--------- -->
-            <form action="homePage" onsubmit="return singInValidation(event)" method="GET">
+            <form action="homePage" method="GET">
                 <div class="mb-3">
                     <label for="floatingInput" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="floatingInput" name="emailName" placeholder="Enter your Email" aria-describedby="emailHelp">
+                    <input type="email" class="form-control" id="floatingInput" name="emailName" oninput="emailValidation()" placeholder="Enter your Email" aria-describedby="emailHelp">
+                    <div id="emailError" class="input-text text-danger"></div>
                     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                 </div>
                 <div class="mb-3">
                     <label for="passwordID" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="passwordID" placeholder="Enter your Password" name="passwordName">
+                    <input type="password" class="form-control" id="passwordID" placeholder="Enter your Password" name="passwordName" oninput=" passwordValidation()">
+                    <div id="PasswordError" class="input-text text-danger"></div>
                 </div>
 
                 <div class="mb-3">
