@@ -97,7 +97,7 @@ public  class UserServiceImplementation implements UserService{
 
         else {
             if(userEntity1.getLoginAttempts() >= 3){
-                if(localDateTime.isAfter(userEntity1.getLocalDateTime().plusMinutes(1))){
+                if(localDateTime.isAfter(userEntity1.getLocalDateTime().plusDays(1))){
                     System.out.println("account is unlocked");
                     if(passwordEncoder.matches(password,fromDataBasePassword)) {
                         userEntity1.setLoginAttempts(0);
