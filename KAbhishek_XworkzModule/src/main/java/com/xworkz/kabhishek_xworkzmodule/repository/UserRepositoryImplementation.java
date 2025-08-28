@@ -48,8 +48,9 @@ public class UserRepositoryImplementation implements UserRepository{
 
             userEntity = (UserEntity) query.getSingleResult();
             System.out.println(userEntity);
-
             eT.commit();
+        }catch (NoResultException e) {
+            return null;
         }catch (Exception e){
             if(eT.isActive()){
                 eT.rollback();
@@ -85,6 +86,24 @@ public class UserRepositoryImplementation implements UserRepository{
             eM.close();
         }
        return false;
+    }
+
+    @Override
+    public void upDateTable(UserEntity userEntity) {
+        EntityManager eM = eMF.createEntityManager();
+        EntityTransaction eT = eM.getTransaction();
+        try {
+            eT.begin();
+            eM.merge(userEntity);
+            eT.commit();
+        }catch (Exception e){
+            if(eT.isActive()){
+                eT.rollback();
+            }
+        }finally {
+            eM.close();
+        }
+
     }
 
 //    @Override

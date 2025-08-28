@@ -3,6 +3,7 @@ package com.xworkz.kabhishek_xworkzmodule.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -40,4 +41,13 @@ public class UserEntity {
 
     @Column(name = "user_password")
     private String userPassword;
+
+    @Column(name = "login_attempts")
+    private int loginAttempts = 0;
+
+//    @Column()
+//    private boolean accountLocked = false;
+
+    @Column(name = "local_date_time")
+    private LocalDateTime localDateTime;
 }

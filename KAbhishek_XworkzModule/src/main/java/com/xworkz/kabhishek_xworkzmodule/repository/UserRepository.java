@@ -9,6 +9,8 @@ public interface UserRepository {
 
     public boolean UpDatePassword(String email , String password);
 
+    void upDateTable(UserEntity userEntity);
+
 //    public boolean getGmailIsExist(String gmail);
 //
 //    public void setForgotPassword(String gmail , String encodedPassword);

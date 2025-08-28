@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.time.LocalDateTime;
 import java.util.Properties;
 
 
@@ -86,10 +87,51 @@ public  class UserServiceImplementation implements UserService{
 
     @Override
     public boolean singInUser(String email, String password) {
+        LocalDateTime localDateTime = LocalDateTime.now();
         UserEntity userEntity1 = userRepositoryImplementation.singInUserToDatabase(email);
         String fromDataBasePassword = userEntity1.getUserPassword();
+        if(userEntity1 == null){
+            System.out.println("querry not found ");
+            return false;
+        }
 
-        return  passwordEncoder.matches(password,fromDataBasePassword);
+        else {
+            if(userEntity1.getLoginAttempts() >= 3){
+                if(localDateTime.isAfter(userEntity1.getLocalDateTime().plusMinutes(1))){
+                    System.out.println("account is unlocked");
+                    if(passwordEncoder.matches(password,fromDataBasePassword)) {
+                        userEntity1.setLoginAttempts(0);
+                        userEntity1.setLocalDateTime(null);
+                        System.out.println("password matchesssssssss");
+                        userRepositoryImplementation.upDateTable(userEntity1);
+                        return true;
+                    }
+                }else {
+                    System.out.println("account is locked");
+
+                }
+            }else {
+                if(passwordEncoder.matches(password,fromDataBasePassword)){
+                    userEntity1.setLoginAttempts(0);
+                    userEntity1.setLocalDateTime(null);
+                    System.out.println("password matchesssssssss");
+                    return true;
+                }else {
+                    int trails = userEntity1.getLoginAttempts() + 1;
+                    userEntity1.setLoginAttempts(trails);
+                    System.out.println("wonrg password attempt " + trails);
+
+                    if(userEntity1.getLoginAttempts() >= 3){
+                        userEntity1.setLocalDateTime(localDateTime);
+                        System.out.println("account hase been locked for one day");
+                    }
+                    userRepositoryImplementation.upDateTable(userEntity1);
+                    return false;
+                }
+            }
+        }
+//        userRepositoryImplementation.upDateTable(userEntity1);
+        return  false;
     }
 
     @Override
