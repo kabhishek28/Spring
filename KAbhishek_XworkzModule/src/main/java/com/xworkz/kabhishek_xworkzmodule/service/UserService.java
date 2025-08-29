@@ -8,7 +8,7 @@ import javax.swing.text.StyledEditorKit;
 public interface UserService {
     public String singUpUser(UserDTO userDTO);
 
-    public boolean singInUser(String email,String password);
+    public String singInUser(String email,String password);
 
     public boolean upDatePassword(String email, String password ,String confirmPassword);
 

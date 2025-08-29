@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page isELIgnored="false" %>
 <html lang="en">
 
 <head>
@@ -145,6 +146,7 @@
                     <label for="passwordID" class="form-label">Password</label>
                     <input type="password" class="form-control" id="passwordID" placeholder="Enter your Password" name="passwordName" oninput=" passwordValidation()">
                     <div id="PasswordError" class="input-text text-danger"> </div>
+                    <div class="input-text text-danger">${error}</div>
                 </div>
 
                 <div class="mb-3">

@@ -86,57 +86,49 @@ public  class UserServiceImplementation implements UserService{
     }
 
     @Override
-    public boolean singInUser(String email, String password) {
+    public String singInUser(String email, String password) {
         LocalDateTime localDateTime = LocalDateTime.now();
         UserEntity userEntity1 = userRepositoryImplementation.singInUserToDatabase(email);
-        String fromDataBasePassword = userEntity1.getUserPassword();
         if(userEntity1 == null){
-            System.out.println("querry not found ");
-            return false;
-        }
-
-        else {
+            return "User not found";
+        } else {
             if(userEntity1.getLoginAttempts() >= 3){
                 if(localDateTime.isAfter(userEntity1.getLocalDateTime().plusDays(1))){
-                    System.out.println("account is unlocked");
+                    String fromDataBasePassword = userEntity1.getUserPassword();
                     if(passwordEncoder.matches(password,fromDataBasePassword)) {
                         userEntity1.setLoginAttempts(0);
                         userEntity1.setLocalDateTime(null);
-                        System.out.println("password matchesssssssss");
                         userRepositoryImplementation.upDateTable(userEntity1);
-                        return true;
+                        return "password Matched";
                     }
                 }else {
-                    System.out.println("account is locked");
-
+                   return "Account has been locked for one day";
                 }
             }else {
+                String fromDataBasePassword = userEntity1.getUserPassword();
                 if(passwordEncoder.matches(password,fromDataBasePassword)){
                     userEntity1.setLoginAttempts(0);
                     userEntity1.setLocalDateTime(null);
-                    System.out.println("password matchesssssssss");
-                    return true;
+                    return "password Matched";
                 }else {
                     int trails = userEntity1.getLoginAttempts() + 1;
                     userEntity1.setLoginAttempts(trails);
-                    System.out.println("wonrg password attempt " + trails);
-
                     if(userEntity1.getLoginAttempts() >= 3){
                         userEntity1.setLocalDateTime(localDateTime);
-                        System.out.println("account hase been locked for one day");
                     }
                     userRepositoryImplementation.upDateTable(userEntity1);
-                    return false;
+                    return "Wrong Password Attempt ";
                 }
             }
         }
 //        userRepositoryImplementation.upDateTable(userEntity1);
-        return  false;
+        return "singUp";
     }
 
     @Override
     public boolean upDatePassword(String email, String password, String confirmPassword) {
         if (password.equals(confirmPassword)) {
+
 
            return userRepositoryImplementation.UpDatePassword(email, passwordEncoder.encode(password));
 

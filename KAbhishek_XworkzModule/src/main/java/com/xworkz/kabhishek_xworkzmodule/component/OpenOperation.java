@@ -56,10 +56,11 @@ public class OpenOperation {
     }
 
     @RequestMapping("homePage")
-    public String openHomePage(String emailName,String passwordName){
-        boolean value = userServiceImplementation.singInUser(emailName,passwordName);
-        if(value == false){
-            return "notHome";
+    public String openHomePage(String emailName,String passwordName , Model model){
+        String value = userServiceImplementation.singInUser(emailName,passwordName);
+        if(!value.equals("password Matched")){
+            model.addAttribute("error",value);
+            return "singIn";
         }
         return "home";
     }

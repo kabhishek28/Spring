@@ -13,7 +13,10 @@ import java.time.LocalDateTime;
 //
 //@NamedQuery(name = "upDatePasswordByEncodedPassword",query = "UPDATE UserEntity e SET e.userPassword =   where e.userEmail =: emailBy")
 
-@NamedQuery(name = "upDatePasswordByGmail",query = "UPDATE UserEntity e SET e.userPassword =: passwordBy where e.userEmail =: emailBy")
+//@NamedQuery(name = "upDatePasswordByGmail",query = "UPDATE UserEntity e SET e.userPassword =: passwordBy where e.userEmail =: emailBy")
+
+@NamedQuery(name = "upDatePasswordByGmail", query = "UPDATE UserEntity e SET e.userPassword = :passwordBy, e.loginAttempts = 0,     e.localDateTime = NULL WHERE e.userEmail = :emailBy")
+
 
 public class UserEntity {
     @Id
