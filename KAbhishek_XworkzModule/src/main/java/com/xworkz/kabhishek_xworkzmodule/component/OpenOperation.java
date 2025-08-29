@@ -72,10 +72,6 @@ public class OpenOperation {
 
     @RequestMapping("forgotpassword")
     public String openPasswordPage(String emailName,String forgotPassword, String confirmPassword ) {
-        System.out.println(emailName);
-        System.out.println(forgotPassword);
-        System.out.println(confirmPassword);
-
         boolean value = userServiceImplementation.upDatePassword(emailName,forgotPassword,confirmPassword);
         if(value == true){
             return "singIn";

@@ -47,7 +47,7 @@ public class UserRepositoryImplementation implements UserRepository{
             query.setParameter("emailBy",email);
 
             userEntity = (UserEntity) query.getSingleResult();
-            System.out.println(userEntity);
+
             eT.commit();
         }catch (NoResultException e) {
             return null;

@@ -121,17 +121,13 @@ public  class UserServiceImplementation implements UserService{
                 }
             }
         }
-//        userRepositoryImplementation.upDateTable(userEntity1);
         return "singUp";
     }
 
     @Override
     public boolean upDatePassword(String email, String password, String confirmPassword) {
         if (password.equals(confirmPassword)) {
-
-
            return userRepositoryImplementation.UpDatePassword(email, passwordEncoder.encode(password));
-
         }
         return false;
     }

@@ -48,8 +48,6 @@ public class UserEntity {
     @Column(name = "login_attempts")
     private int loginAttempts = 0;
 
-//    @Column()
-//    private boolean accountLocked = false;
 
     @Column(name = "local_date_time")
     private LocalDateTime localDateTime;
