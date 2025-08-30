@@ -42,7 +42,7 @@ public class OpenOperation {
 //            }
 //        }
         String value = userServiceImplementation.singUpUser(userDTO);
-        if(!value.equals("data has been Saved")){
+        if(!value.equals("otp sent")){
             return "notSingIn";
         }
         return "singIn";

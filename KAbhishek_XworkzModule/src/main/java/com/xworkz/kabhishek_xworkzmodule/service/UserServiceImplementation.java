@@ -24,6 +24,8 @@ public  class UserServiceImplementation implements UserService{
     @Autowired
     PasswordEncoder passwordEncoder;
 
+    int randomNumber = 7894;
+
     UserEntity userEntity = new UserEntity();
     @Override
     public String singUpUser(UserDTO userDTO) {
@@ -36,14 +38,18 @@ public  class UserServiceImplementation implements UserService{
         userEntity.setUserAddress(userDTO.getUserAddress());
 
         userEntity.setUserPassword(passwordEncoder.encode(userDTO.getUserPassword()));
-        sendEmail(userEntity.getUserEmail());
+        sendEmail(userEntity.getUserEmail(),randomNumber);
+
+
+
+
 
 
         return userRepositoryImplementation.singUpUserToDataBase(userEntity);
 
     }
 
-    private void sendEmail(String email){
+    private void sendEmail(String email,int OTPNumber){
         final String username = "kabhishek.eng@gmail.com";
         final String password = "voyy beef kyoc ahsn";
 
@@ -70,7 +76,8 @@ public  class UserServiceImplementation implements UserService{
             );
             message.setSubject("Testing Gmail TLS");
             message.setText("Dear Mail Crawler,"
-                    + "\n\n Please do not spam my email!");
+                    + "\n\n Please do not spam my email!"
+            + "OTP" + randomNumber);
 
             Transport.send(message);
 
