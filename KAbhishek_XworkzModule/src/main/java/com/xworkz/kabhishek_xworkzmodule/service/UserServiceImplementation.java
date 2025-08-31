@@ -4,6 +4,7 @@ import com.xworkz.kabhishek_xworkzmodule.dto.UserDTO;
 import com.xworkz.kabhishek_xworkzmodule.entity.UserEntity;
 import com.xworkz.kabhishek_xworkzmodule.repository.UserRepository;
 import com.xworkz.kabhishek_xworkzmodule.repository.UserRepositoryImplementation;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -24,7 +25,7 @@ public  class UserServiceImplementation implements UserService{
     @Autowired
     PasswordEncoder passwordEncoder;
 
-    int randomNumber = 7894;
+
 
     UserEntity userEntity = new UserEntity();
     @Override
@@ -38,10 +39,15 @@ public  class UserServiceImplementation implements UserService{
         userEntity.setUserAddress(userDTO.getUserAddress());
 
         userEntity.setUserPassword(passwordEncoder.encode(userDTO.getUserPassword()));
-        sendEmail(userEntity.getUserEmail(),randomNumber);
 
+        String otpNo = getOTP();
+        sendEmail(userEntity.getUserEmail(), otpNo);
 
+        return "otpSent";
+    }
 
+    @Override
+    public String otpMatch(String otp){
 
 
 
@@ -49,7 +55,11 @@ public  class UserServiceImplementation implements UserService{
 
     }
 
-    private void sendEmail(String email,int OTPNumber){
+    public String getOTP(){
+        return "7894";
+    }
+
+    private void sendEmail(String email,String OTPNumber){
         final String username = "kabhishek.eng@gmail.com";
         final String password = "voyy beef kyoc ahsn";
 
@@ -67,7 +77,6 @@ public  class UserServiceImplementation implements UserService{
                 });
 
         try {
-
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(username));
             message.setRecipients(
@@ -77,7 +86,7 @@ public  class UserServiceImplementation implements UserService{
             message.setSubject("Testing Gmail TLS");
             message.setText("Dear Mail Crawler,"
                     + "\n\n Please do not spam my email!"
-            + "OTP" + randomNumber);
+            + "OTP" + OTPNumber);
 
             Transport.send(message);
 
@@ -86,10 +95,7 @@ public  class UserServiceImplementation implements UserService{
 
         } catch (MessagingException e) {
             e.printStackTrace();
-
-
         }
-
     }
 
     @Override

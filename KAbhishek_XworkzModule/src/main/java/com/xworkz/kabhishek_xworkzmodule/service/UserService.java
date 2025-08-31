@@ -12,6 +12,7 @@ public interface UserService {
 
     public boolean upDatePassword(String email, String password ,String confirmPassword);
 
+    public String otpMatch(String otp);
 //    public boolean getGmailIsExist(String email);
 //
 //    public void setPassword(String email ,String password ,String confirmPassword);

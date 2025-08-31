@@ -42,10 +42,19 @@ public class OpenOperation {
 //            }
 //        }
         String value = userServiceImplementation.singUpUser(userDTO);
-        if(!value.equals("otp sent")){
-            return "notSingIn";
+        if(!value.equals("otpSent")){
+            return "index";
         }
-        return "singIn";
+        return "otpPage";
+    }
+
+    @RequestMapping("saveData")
+    public String getHome(String otp){
+        String value = userServiceImplementation.otpMatch(otp);
+        if(!value.equals("data has been Saved")){
+            return "singIn";
+        }
+        return "home";
     }
 
 
