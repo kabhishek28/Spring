@@ -25,7 +25,7 @@ public  class UserServiceImplementation implements UserService{
     @Autowired
     PasswordEncoder passwordEncoder;
 
-
+    String otpNo = getOTP();
 
     UserEntity userEntity = new UserEntity();
     @Override
@@ -40,7 +40,7 @@ public  class UserServiceImplementation implements UserService{
 
         userEntity.setUserPassword(passwordEncoder.encode(userDTO.getUserPassword()));
 
-        String otpNo = getOTP();
+
         sendEmail(userEntity.getUserEmail(), otpNo);
 
         return "otpSent";
@@ -49,10 +49,10 @@ public  class UserServiceImplementation implements UserService{
     @Override
     public String otpMatch(String otp){
 
-
-
-        return userRepositoryImplementation.singUpUserToDataBase(userEntity);
-
+    if(otpNo.equals(otp)){
+        return "otp not matched";
+    }
+    return userRepositoryImplementation.singUpUserToDataBase(userEntity);
     }
 
     public String getOTP(){

@@ -137,8 +137,8 @@
             <!------------------ Sing in from--------- -->
             <form action="saveData" method="GET">
                 <div class="mb-3">
-                    <label for="otpName" class="form-label">Enter OTP</label>
-                    <input type="email" class="form-control" id="floatingInput" name="otpName"  placeholder="Enter your OTP sent to Email">
+                    <label for="otpID" class="form-label">Enter OTP</label>
+                    <input type="text" class="form-control" id="otpID" name="otpName"  placeholder="Enter your OTP sent to Email">
                     <div id="emailError" class="input-text text-danger"></div>
                     <div id="emailHelp" class="form-text">We'll never share your OTP with anyone else.</div>
                 </div>
