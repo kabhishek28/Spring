@@ -14,6 +14,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.time.LocalDateTime;
 import java.util.Properties;
+import java.util.Random;
 
 
 @Service
@@ -48,7 +49,6 @@ public  class UserServiceImplementation implements UserService{
 
     @Override
     public String otpMatch(String otp){
-
     if(otpNo.equals(otp)){
         return "otp not matched";
     }
@@ -56,6 +56,7 @@ public  class UserServiceImplementation implements UserService{
     }
 
     public String getOTP(){
+
         return "7894";
     }
 
@@ -83,10 +84,15 @@ public  class UserServiceImplementation implements UserService{
                     Message.RecipientType.TO,
                     InternetAddress.parse(email)
             );
-            message.setSubject("Testing Gmail TLS");
-            message.setText("Dear Mail Crawler,"
-                    + "\n\n Please do not spam my email!"
-            + "OTP" + OTPNumber);
+            message.setSubject("Your One-Time Password (OTP) for Verification");
+
+            message.setText("Dear User,\n\n"
+                    + "Your One-Time Password (OTP) for completing the verification process is:\n\n"
+                    + OTPNumber + "\n\n"
+                    + "Please use this code within the next 10 minutes. "
+                    + "Do not share this OTP with anyone for security reasons.\n\n"
+                    + "Thank you,\n"
+                    + "Support Team");
 
             Transport.send(message);
 
@@ -97,6 +103,47 @@ public  class UserServiceImplementation implements UserService{
             e.printStackTrace();
         }
     }
+
+//    private void sendEmailAfterOTP(String email){
+//        final String username = "kabhishek.eng@gmail.com";
+//        final String password = "voyy beef kyoc ahsn";
+//
+//        Properties prop = new Properties();
+//        prop.put("mail.smtp.host", "smtp.gmail.com");
+//        prop.put("mail.smtp.port", "587");
+//        prop.put("mail.smtp.auth", "true");
+//        prop.put("mail.smtp.starttls.enable", "true"); //TLS
+//
+//        Session session = Session.getInstance(prop,
+//                new javax.mail.Authenticator() {
+//                    protected PasswordAuthentication getPasswordAuthentication() {
+//                        return new PasswordAuthentication(username, password);
+//                    }
+//                });
+//
+//        try {
+//            Message message = new MimeMessage(session);
+//            message.setFrom(new InternetAddress(username));
+//            message.setRecipients(
+//                    Message.RecipientType.TO,
+//                    InternetAddress.parse(email)
+//            );
+//            message.setSubject("Welcome to Our Website – Registration Successful");
+//
+//            message.setText("Dear " + email + ",\n\n"
+//                    + "We are excited to inform you that your registration on our website has been completed successfully.\n\n"
+//                    + "You can now log in to your account and start exploring our features and services.\n\n"
+//                    + "If you did not sign up for this account, please contact our support team immediately.\n\n"
+//                    + "Thank you for joining us!\n\n"
+//                    + "Best regards,\n"
+//                    + "The Support Team");
+//
+//            Transport.send(message);
+//            System.out.println("Done");
+//        } catch (MessagingException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     @Override
     public String singInUser(String email, String password) {
